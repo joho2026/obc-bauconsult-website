@@ -67,18 +67,19 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      min-height: 74px;
+      min-height: 66px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 12px;
       min-width: 0;
+      flex: 0 1 auto;
     }
 
     .brand-logo {
-      height: 150px;
+      height: 48px;
       width: auto;
       object-fit: contain;
       flex-shrink: 0;
@@ -90,33 +91,33 @@
 
     .brand-title {
       margin: 0;
-      font-size: 1.04rem;
-      line-height: 1.1;
+      font-size: 1rem;
+      line-height: 1.05;
       font-weight: 700;
       color: var(--text);
+      white-space: nowrap;
     }
 
     .brand-subtitle {
-      margin: 5px 0 0;
-      font-size: 0.82rem;
-      color: var(--muted);
+      display: none;
     }
 
     .nav-wrap {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 20px;
+      margin-left: auto;
     }
 
     .nav {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 18px;
       flex-wrap: wrap;
     }
 
     .nav a {
-      font-size: 0.95rem;
+      font-size: 0.93rem;
       color: var(--muted);
       transition: color 0.2s ease;
     }
@@ -131,12 +132,12 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      min-height: 48px;
-      padding: 0 22px;
+      min-height: 44px;
+      padding: 0 20px;
       border-radius: 999px;
       border: 1px solid transparent;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.93rem;
       transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
       cursor: pointer;
     }
@@ -414,6 +415,93 @@
       color: var(--accent-dark);
     }
 
+    .section-note {
+      margin: 22px 0 0;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface-soft);
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .logo-lightbox {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(8, 14, 21, 0.86);
+      z-index: 2000;
+    }
+
+    .logo-lightbox:target {
+      display: flex;
+    }
+
+    .logo-lightbox-content {
+      position: relative;
+      width: min(92vw, 1200px);
+      max-height: 90vh;
+      padding: 28px;
+      border-radius: 24px;
+      background: #ffffff;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-lightbox-content img {
+      max-width: 100%;
+      max-height: calc(90vh - 56px);
+      object-fit: contain;
+    }
+
+    .logo-lightbox-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+      color: var(--accent-dark);
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .back-to-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent);
+      color: #fff;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-size: 1.2rem;
+      font-weight: 700;
+      z-index: 1200;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .back-to-top:hover,
+    .back-to-top:focus-visible {
+      transform: translateY(-2px);
+      background: var(--accent-dark);
+    }
+
     .footer {
       padding: 34px 0 50px;
       border-top: 1px solid rgba(215, 224, 232, 0.9);
@@ -453,14 +541,20 @@
 
       .topbar-inner {
         min-height: auto;
-        padding: 14px 0;
-        align-items: flex-start;
+        padding: 12px 0;
+        align-items: center;
       }
 
       .nav-wrap {
-        flex-direction: column;
-        align-items: flex-end;
+        gap: 16px;
+      }
+
+      .nav {
         gap: 14px;
+      }
+
+      .brand-logo {
+        height: 44px;
       }
 
       .hero-copy {
@@ -476,16 +570,17 @@
 
       .topbar-inner {
         flex-direction: column;
-        gap: 14px;
+        gap: 12px;
+        align-items: stretch;
       }
 
       .brand {
-        gap: 12px;
+        gap: 10px;
         align-self: flex-start;
       }
 
       .brand-logo {
-        height: 48px;
+        height: 40px;
       }
 
       .nav-wrap {
@@ -525,11 +620,10 @@
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
-      <a class="brand" href="#top" aria-label="Zur Startseite von obc-BauConsult e.U.">
-        <img class="brand-logo" src="obc-logo.png.png" alt="Ortner BauConsult e.U. Logo" />
+      <a class="brand" href="#logo-lightbox" aria-label="Logo von Ortner BauConsult e.U. vergrößern">
+        <img class="brand-logo" src="assets/img/obc-logo.png" alt="Ortner BauConsult e.U. Logo" />
         <div class="brand-text">
           <p class="brand-title">obc-BauConsult e.U.</p>
-          <p class="brand-subtitle">Technische Beratung & Projektbegleitung im Hochbau</p>
         </div>
       </a>
 
