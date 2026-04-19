@@ -67,28 +67,20 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      min-height: 78px;
+      min-height: 74px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
       min-width: 0;
     }
 
-    .brand-mark {
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
-      color: #fff;
-      display: grid;
-      place-items: center;
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      box-shadow: var(--shadow);
+    .brand-logo {
+      height: 62px;
+      width: auto;
+      object-fit: contain;
       flex-shrink: 0;
     }
 
@@ -98,14 +90,14 @@
 
     .brand-title {
       margin: 0;
-      font-size: 1.05rem;
+      font-size: 1.04rem;
       line-height: 1.1;
       font-weight: 700;
       color: var(--text);
     }
 
     .brand-subtitle {
-      margin: 4px 0 0;
+      margin: 5px 0 0;
       font-size: 0.82rem;
       color: var(--muted);
     }
@@ -484,7 +476,16 @@
 
       .topbar-inner {
         flex-direction: column;
-        gap: 16px;
+        gap: 14px;
+      }
+
+      .brand {
+        gap: 12px;
+        align-self: flex-start;
+      }
+
+      .brand-logo {
+        height: 48px;
       }
 
       .nav-wrap {
@@ -525,7 +526,7 @@
   <header class="topbar">
     <div class="container topbar-inner">
       <a class="brand" href="#top" aria-label="Zur Startseite von obc-BauConsult e.U.">
-        <div class="brand-mark">OBC</div>
+        <img class="brand-logo" src="assets/img/obc-logo.png" alt="Ortner BauConsult e.U. Logo" />
         <div class="brand-text">
           <p class="brand-title">obc-BauConsult e.U.</p>
           <p class="brand-subtitle">Technische Beratung & Projektbegleitung im Hochbau</p>
