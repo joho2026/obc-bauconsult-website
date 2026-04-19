@@ -73,13 +73,13 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
       min-width: 0;
       flex: 0 1 auto;
     }
 
     .brand-logo {
-      height: 64px;
+      height: 74px;
       width: auto;
       object-fit: contain;
       flex-shrink: 0;
@@ -211,10 +211,11 @@
     }
 
     h1 {
-      margin: 18px 0 16px;
-      font-size: clamp(1.95rem, 3vw, 3rem);
-      line-height: 1.12;
-      letter-spacing: -0.025em;
+      margin: 14px 0 14px;
+      font-size: clamp(1.68rem, 2.35vw, 2.45rem);
+      line-height: 1.16;
+      letter-spacing: -0.02em;
+      max-width: 18ch;
     }
 
     .hero-copy p {
@@ -493,13 +494,87 @@
       font-size: 1.2rem;
       font-weight: 700;
       z-index: 1200;
-      transition: transform 0.2s ease, background 0.2s ease;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease, background 0.2s ease;
+    }
+
+    .back-to-top.is-visible {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
     }
 
     .back-to-top:hover,
     .back-to-top:focus-visible {
-      transform: translateY(-2px);
       background: var(--accent-dark);
+    }
+
+    .cookie-banner {
+      position: fixed;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      z-index: 1500;
+      background: rgba(22, 32, 43, 0.96);
+      color: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .cookie-banner[hidden] {
+      display: none;
+    }
+
+    .cookie-copy {
+      flex: 1 1 520px;
+    }
+
+    .cookie-copy strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .cookie-copy p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 0.95rem;
+    }
+
+    .cookie-copy a {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .cookie-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .cookie-actions .button {
+      min-height: 42px;
+    }
+
+    .cookie-actions .button-secondary {
+      border-color: rgba(255,255,255,0.26);
+      color: #ffffff;
+      background: transparent;
+    }
+
+    .cookie-actions .button-secondary:hover,
+    .cookie-actions .button-secondary:focus-visible {
+      background: rgba(255,255,255,0.08);
     }
 
     .footer {
@@ -554,7 +629,7 @@
       }
 
       .brand-logo {
-        height: 56px;
+        height: 64px;
       }
 
       .hero-copy {
@@ -580,7 +655,7 @@
       }
 
       .brand-logo {
-        height: 50px;
+        height: 56px;
       }
 
       .nav-wrap {
@@ -710,7 +785,7 @@
       <div class="container">
         <div class="section-head">
           <h2>Leistungen</h2>
-          <p>WKO-konform formulierte Unterstützung in ausgewählten Bereichen der technischen Beratung, Projektbegleitung und baunahen Koordination im Hochbau.</p>
+          <p>Ausgewählte Leistungen in der technischen Beratung, Projektbegleitung und baunahen Koordination im Hochbau.</p>
         </div>
         <div class="card-grid">
           <article class="card">
@@ -746,7 +821,7 @@
             <p>Beratung von Bauherren und Auftraggebern bei technischen, organisatorischen und projektbezogenen Fragestellungen mit Fokus auf Klarheit, Umsetzbarkeit und nachvollziehbare Entscheidungsgrundlagen.</p>
           </article>
         </div>
-        <p class="section-note">Hinweis: Der konkrete Leistungsumfang richtet sich nach Aufgabenstellung, Projektanforderung und gewerberechtlichem Rahmen. Einreichplanungen, weiterführende Fachplanungen sowie sonstige erforderliche Fachleistungen werden bei Bedarf gemeinsam mit geeigneten Partnern umgesetzt.</p>
+        <p class="section-note">Hinweis: Der konkrete Leistungsumfang richtet sich nach Aufgabenstellung und Projektanforderung. Einreichplanungen, weiterführende Fachplanungen sowie sonstige erforderliche Fachleistungen werden bei Bedarf gemeinsam mit geeigneten Partnern umgesetzt.</p>
       </div>
     </section>
 
@@ -845,6 +920,17 @@
 
   <a class="back-to-top" href="#top" aria-label="Zurück zum Seitenanfang">↑</a>
 
+  <div class="cookie-banner" id="cookie-banner">
+    <div class="cookie-copy">
+      <strong>Hinweis zu Cookies</strong>
+      <p>Diese Website verwendet nur technisch erforderliche Cookies, um grundlegende Funktionen und eine saubere Darstellung der Seite zu ermöglichen. Weitere Informationen finden Sie in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+    </div>
+    <div class="cookie-actions">
+      <button class="button button-secondary" type="button" id="cookie-close">Schließen</button>
+      <button class="button button-primary" type="button" id="cookie-accept">Verstanden</button>
+    </div>
+  </div>
+
   <footer class="footer">
     <div class="container footer-grid">
       <div>
@@ -858,5 +944,48 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      const backToTop = document.querySelector('.back-to-top');
+      const cookieBanner = document.getElementById('cookie-banner');
+      const cookieAccept = document.getElementById('cookie-accept');
+      const cookieClose = document.getElementById('cookie-close');
+      const cookieKey = 'obc_cookie_notice_accepted';
+
+      function handleScroll() {
+        if (!backToTop) return;
+        if (window.scrollY > 220) {
+          backToTop.classList.add('is-visible');
+        } else {
+          backToTop.classList.remove('is-visible');
+        }
+      }
+
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll();
+
+      function hideCookieBanner() {
+        if (cookieBanner) {
+          cookieBanner.hidden = true;
+        }
+      }
+
+      if (localStorage.getItem(cookieKey) === '1') {
+        hideCookieBanner();
+      }
+
+      if (cookieAccept) {
+        cookieAccept.addEventListener('click', function () {
+          localStorage.setItem(cookieKey, '1');
+          hideCookieBanner();
+        });
+      }
+
+      if (cookieClose) {
+        cookieClose.addEventListener('click', hideCookieBanner);
+      }
+    })();
+  </script>
 </body>
 </html>
