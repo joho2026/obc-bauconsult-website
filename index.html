@@ -75,11 +75,40 @@
     }
 
     .brand-logo{
-      height:104px;
+      height:124px;
       width:auto;
       object-fit:contain;
       display:block;
     }
+
+    .nav-toggle{
+      display:none;
+      width:48px;
+      height:48px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:var(--surface);
+      color:var(--accent-dark);
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      gap:5px;
+      cursor:pointer;
+      box-shadow:var(--shadow);
+    }
+
+    .nav-toggle span{
+      width:22px;
+      height:2px;
+      border-radius:99px;
+      background:var(--accent-dark);
+      display:block;
+      transition:transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .nav-toggle.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .nav-toggle.is-open span:nth-child(2){opacity:0;}
+    .nav-toggle.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
     .nav-wrap{
       display:flex;
@@ -143,6 +172,17 @@
     .button-secondary:focus-visible{background:var(--surface-soft);}
 
     main section{padding:88px 0;}
+
+    section,
+    #top,
+    #leistungen,
+    #ueber-obc,
+    #partner,
+    #kontakt,
+    #warum-obc,
+    #mehrwert{
+      scroll-margin-top:150px;
+    }
 
     .hero{padding:84px 0 76px;}
 
@@ -535,7 +575,7 @@
 
     @media (max-width:1080px){
       .partner-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
-      .brand-logo{height:88px;}
+      .brand-logo{height:102px;}
       .nav{gap:14px;}
     }
 
@@ -552,7 +592,7 @@
       }
 
       .nav-wrap{gap:16px;}
-      .brand-logo{height:70px;}
+      .brand-logo{height:84px;}
       .hero-copy{padding:40px 30px;}
     }
 
@@ -560,25 +600,58 @@
       main section,
       .hero{padding:68px 0;}
 
-      .topbar-inner{
-        flex-direction:column;
-        gap:12px;
-        align-items:stretch;
+      section,
+      #top,
+      #leistungen,
+      #ueber-obc,
+      #partner,
+      #kontakt,
+      #warum-obc,
+      #mehrwert{
+        scroll-margin-top:118px;
       }
 
-      .brand{align-self:flex-start;}
-      .brand-logo{height:58px;}
+      .topbar-inner{
+        flex-direction:row;
+        gap:12px;
+        align-items:center;
+      }
+
+      .brand{align-self:center;}
+      .brand-logo{height:74px;}
+
+      .nav-toggle{display:inline-flex;margin-left:auto;}
 
       .nav-wrap{
-        width:100%;
+        position:absolute;
+        left:16px;
+        right:16px;
+        top:calc(100% + 8px);
+        width:auto;
+        display:none;
         align-items:stretch;
         flex-direction:column;
         gap:12px;
+        padding:16px;
+        border-radius:20px;
+        background:rgba(255,255,255,0.98);
+        border:1px solid var(--line);
+        box-shadow:var(--shadow-strong);
       }
 
+      .nav-wrap.is-open{display:flex;}
+
       .nav{
+        flex-direction:column;
+        align-items:stretch;
         justify-content:flex-start;
-        gap:14px 18px;
+        gap:6px;
+      }
+
+      .nav a{
+        padding:10px 12px;
+        border-radius:12px;
+        background:var(--surface-soft);
       }
 
       .nav-cta{width:100%;}
@@ -612,7 +685,13 @@
         <img class="brand-logo" src="obc_Logo_NEU.png" alt="obc-BauConsult e.U. Logo" />
       </a>
 
-      <div class="nav-wrap">
+      <button class="nav-toggle" type="button" aria-label="Navigation öffnen" aria-expanded="false" aria-controls="main-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-wrap" id="main-nav">
         <nav class="nav" aria-label="Hauptnavigation">
           <a href="#leistungen">Leistungen</a>
           <a href="#ueber-obc">Über OBC</a>
@@ -948,6 +1027,9 @@
   <script>
     (function(){
       const backToTop = document.querySelector('.back-to-top');
+      const navToggle = document.querySelector('.nav-toggle');
+      const navWrap = document.querySelector('.nav-wrap');
+      const navLinks = document.querySelectorAll('.nav a');
       const cookieBanner = document.getElementById('cookie-banner');
       const cookieAccept = document.getElementById('cookie-accept');
       const cookieClose = document.getElementById('cookie-close');
@@ -964,6 +1046,22 @@
 
       window.addEventListener('scroll', handleScroll, { passive:true });
       handleScroll();
+
+      if(navToggle && navWrap){
+        navToggle.addEventListener('click', function(){
+          const isOpen = navWrap.classList.toggle('is-open');
+          navToggle.classList.toggle('is-open', isOpen);
+          navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        navLinks.forEach(function(link){
+          link.addEventListener('click', function(){
+            navWrap.classList.remove('is-open');
+            navToggle.classList.remove('is-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
 
       function hideCookieBanner(){
         if(cookieBanner){
