@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>obc-BauConsult e.U. | Technische Beratung & Projektbegleitung im Hochbau</title>
-  <meta name="description" content="obc-BauConsult e.U. begleitet Bauherren, Unternehmen, Banken, Versicherungen und Projektbeteiligte mit technischer Beratung, Projektbegleitung, Qualität([wien.gerichts-sv.at](https://wien.gerichts-sv.at/sachverstaendige/zertifizierung/?utm_source=chatgpt.com))Schadensanalyse im Hochbau." />
+  <title>obc-BauConsult e.U. | Unabhängige Bauherrenberatung & technische Projektbegleitung</title>
+  <meta name="description" content="obc-BauConsult e.U. unterstützt private, gewerbliche und öffentliche Bauherren mit unabhängiger technischer Beratung, Projektbegleitung, Kosten-, Qualitäts- und Risikobewertung im Hochbau." />
 
   <style>
     :root{
@@ -177,6 +177,8 @@
     #top,
     #leistungen,
     #ueber-obc,
+    #zielgruppen,
+    #arbeitsweise,
     #partner,
     #kontakt,
     #warum-obc,
@@ -222,14 +224,14 @@
       font-size:clamp(1.78rem, 2.55vw, 2.72rem);
       line-height:1.14;
       letter-spacing:-0.025em;
-      max-width:20ch;
+      max-width:22ch;
     }
 
     .hero-copy p{
       margin:0;
       font-size:1.04rem;
       color:var(--muted);
-      max-width:62ch;
+      max-width:64ch;
     }
 
     .hero-actions{
@@ -281,7 +283,7 @@
     }
 
     .section-head{
-      max-width:820px;
+      max-width:860px;
       margin-bottom:34px;
     }
 
@@ -304,8 +306,21 @@
       gap:22px;
     }
 
+    .service-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:22px;
+    }
+
+    .target-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:18px;
+    }
+
     .card,
-    .partner-card{
+    .partner-card,
+    .target-card{
       background:var(--surface);
       border:1px solid rgba(215,224,232,0.9);
       border-radius:var(--radius-lg);
@@ -314,14 +329,16 @@
     }
 
     .card h3,
-    .partner-card h3{
+    .partner-card h3,
+    .target-card h3{
       margin:0 0 10px;
       font-size:1.08rem;
       line-height:1.35;
     }
 
     .card p,
-    .partner-card p{margin:0;color:var(--muted);}
+    .partner-card p,
+    .target-card p{margin:0;color:var(--muted);}
 
     .service-kicker{
       display:inline-flex;
@@ -334,6 +351,31 @@
       font-weight:700;
       letter-spacing:0.04em;
       text-transform:uppercase;
+    }
+
+    .service-list{
+      margin:18px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+
+    .service-list li{
+      position:relative;
+      padding-left:22px;
+      color:var(--muted);
+    }
+
+    .service-list li::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0.72em;
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background:var(--accent);
     }
 
     .section-note{
@@ -575,6 +617,7 @@
 
     @media (max-width:1080px){
       .partner-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+      .target-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
       .brand-logo{height:122px;}
       .nav{gap:14px;}
     }
@@ -583,7 +626,8 @@
       .hero-grid,
       .about-grid,
       .contact-grid,
-      .card-grid{grid-template-columns:1fr;}
+      .card-grid,
+      .service-grid{grid-template-columns:1fr;}
 
       .topbar-inner{
         min-height:auto;
@@ -604,6 +648,8 @@
       #top,
       #leistungen,
       #ueber-obc,
+      #zielgruppen,
+      #arbeitsweise,
       #partner,
       #kontakt,
       #warum-obc,
@@ -661,12 +707,14 @@
       .hero-panel,
       .card,
       .partner-card,
+      .target-card,
       .about-copy,
       .about-side,
       .contact-copy,
       .contact-side{padding:24px;}
 
-      .partner-grid{grid-template-columns:1fr;}
+      .partner-grid,
+      .target-grid{grid-template-columns:1fr;}
 
       .cookie-banner{
         left:12px;
@@ -694,6 +742,7 @@
       <div class="nav-wrap" id="main-nav">
         <nav class="nav" aria-label="Hauptnavigation">
           <a href="#leistungen">Leistungen</a>
+          <a href="#zielgruppen">Für wen</a>
           <a href="#ueber-obc">Über OBC</a>
           <a href="#partner">Partner</a>
           <a href="#kontakt">Kontakt</a>
@@ -710,33 +759,33 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <div class="eyebrow">obc-BauConsult e.U.</div>
-          <h1>Technische Beratung. Projektbegleitung. Qualitätssicherung im Hochbau.</h1>
-          <p>obc-BauConsult e.U. begleitet Bauherren, Unternehmen, Banken, Versicherungen und Projektbeteiligte mit technischer Beratung, strukturierter Projektbegleitung und praxistauglichen Lösungen im Hochbau.</p>
+          <h1>Unabhängige Bauherrenberatung und technische Projektbegleitung im Hochbau.</h1>
+          <p>OBC BauConsult e.U. unterstützt private, gewerbliche und öffentliche Bauherren bei Bauprojekten mit technischer Beratung, strukturierter Projektbegleitung sowie Kosten-, Qualitäts- und Risikobewertung.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#kontakt">Kontakt aufnehmen</a>
             <a class="button button-secondary" href="#leistungen">Leistungen ansehen</a>
           </div>
-          <div class="hero-note">Praxisnah. Lösungsorientiert. Technisch fundiert.</div>
+          <div class="hero-note">Unabhängig. Praxisnah. Bauherrenseitig gedacht.</div>
         </div>
 
         <aside class="hero-panel" aria-label="Kurzübersicht">
           <div>
-            <h2 class="panel-title">Technische Klarheit für anspruchsvolle Bauaufgaben</h2>
-            <p class="panel-text">Nicht theoretisch, sondern auf Basis echter Projektanforderungen: strukturiert, nachvollziehbar und mit Blick auf Umsetzbarkeit, Qualität, Kosten und Ablauf.</p>
+            <h2 class="panel-title">Technische Klarheit für sichere Entscheidungen</h2>
+            <p class="panel-text">Bauprojekte brauchen klare Entscheidungsgrundlagen, nachvollziehbare Kosten, dokumentierte Qualität und einen sachlichen Blick auf technische Risiken.</p>
           </div>
 
           <div class="metric-list">
             <div class="metric-item">
-              <strong>Technische Beratung</strong>
-              Begleitung bei baulichen, organisatorischen und projektbezogenen Fragestellungen im Hochbau.
+              <strong>Bauherrenberatung</strong>
+              Fachliche Unterstützung bei Entscheidungen, Abstimmungen und technischen Fragestellungen im Hochbau.
             </div>
             <div class="metric-item">
-              <strong>Projekt- und Baufortschrittsbegleitung</strong>
-              Unterstützung bei Struktur, Abstimmung, Dokumentation und nachvollziehbarer Entscheidungsaufbereitung.
+              <strong>Kosten, Angebote und Nachträge</strong>
+              Plausibilisierung von Leistungsumfängen, Kostenentwicklungen, Angeboten und Nachtragsforderungen.
             </div>
             <div class="metric-item">
-              <strong>Schadensanalyse und Qualität</strong>
-              Ursachenorientierte Betrachtung, Konzeptentwicklung und technische Einordnung von Ausführungs- und Schadensthemen.
+              <strong>Qualität und Risikobewertung</strong>
+              Baufortschrittskontrollen, Dokumentation, technische Einschätzungen und lösungsorientierte Aufarbeitung.
             </div>
           </div>
         </aside>
@@ -746,25 +795,25 @@
     <section id="warum-obc">
       <div class="container">
         <div class="section-head">
-          <h2>Technische Klarheit für komplexe Bauprojekte</h2>
-          <p>Bauprojekte sind technisch, organisatorisch und wirtschaftlich anspruchsvoll. OBC unterstützt dabei, Aufgaben sauber zu strukturieren, Risiken frühzeitig sichtbar zu machen und Entscheidungen auf einer belastbaren fachlichen Grundlage vorzubereiten.</p>
+          <h2>Der technische Partner auf Seite des Auftraggebers</h2>
+          <p>OBC hilft dabei, Bauprojekte fachlich zu strukturieren, technische und wirtschaftliche Risiken frühzeitig sichtbar zu machen und Entscheidungen nachvollziehbar vorzubereiten. Der Fokus liegt nicht auf Standardfloskeln, sondern auf konkretem Nutzen für den Bauherrn.</p>
         </div>
         <div class="card-grid">
           <article class="card">
             <h3>Struktur statt Unklarheit</h3>
-            <p>Komplexe Themen werden geordnet, verständlich aufbereitet und auf das Wesentliche reduziert.</p>
+            <p>Komplexe bauliche Themen werden geordnet, verständlich aufbereitet und auf die entscheidungsrelevanten Punkte reduziert.</p>
           </article>
           <article class="card">
             <h3>Praxis statt Theorie</h3>
-            <p>Empfehlungen orientieren sich an realen Abläufen, Schnittstellen und praktischer Umsetzbarkeit.</p>
+            <p>Empfehlungen orientieren sich an realen Abläufen, Schnittstellen, Kostenfolgen und praktischer Umsetzbarkeit.</p>
           </article>
           <article class="card">
-            <h3>Klarheit für Entscheidungen</h3>
-            <p>Technische Fragestellungen werden so aufbereitet, dass Bauherren, Auftraggeber und Projektbeteiligte fundierter entscheiden können.</p>
+            <h3>Kontrolle statt Blindflug</h3>
+            <p>Baufortschritt, Ausführungsqualität, Kostenveränderungen und Risiken werden nachvollziehbar dokumentiert und eingeordnet.</p>
           </article>
           <article class="card">
-            <h3>Verlässliche Begleitung</h3>
-            <p>Saubere Kommunikation, klare Struktur und ein sachlicher Blick von außen schaffen Orientierung im Projekt.</p>
+            <h3>Unabhängigkeit statt Interessenkonflikt</h3>
+            <p>OBC betrachtet Projekte aus Sicht des Auftraggebers und unterstützt dort, wo technisches Verständnis, Erfahrung und ein klarer Blick von außen gefragt sind.</p>
           </article>
         </div>
       </div>
@@ -774,84 +823,111 @@
       <div class="container">
         <div class="section-head">
           <h2>Leistungen</h2>
-          <p>Ausgewählte Leistungen in der technischen Beratung, Projektbegleitung, baunahen Koordination, Qualitätssicherung und Dokumentation im Hochbau.</p>
+          <p>Die Leistungen sind bewusst in vier Bereiche gegliedert: Beratung, Kosten, Qualität und Risiko. Dadurch bleibt klar, wofür OBC steht und welchen konkreten Mehrwert die Begleitung im Projekt liefert.</p>
         </div>
 
-        <div class="card-grid">
+        <div class="service-grid">
           <article class="card">
-            <span class="service-kicker">Beratung</span>
-            <h3>Technische Beratung und Projektbegleitung</h3>
-            <p>Begleitung bei baulichen, technischen und organisatorischen Fragestellungen im Hochbau – strukturiert, nachvollziehbar und mit Blick auf die praktische Umsetzbarkeit.</p>
+            <span class="service-kicker">01 · Bauherrenberatung</span>
+            <h3>Bauherrenberatung & Projektbegleitung</h3>
+            <p>Technische Beratung und strukturierte Begleitung von Bauherren bei Neubau-, Umbau-, Sanierungs- und Immobilienprojekten.</p>
+            <ul class="service-list">
+              <li>Beratung vor, während und nach der Bauphase</li>
+              <li>Unterstützung bei Projektentscheidungen</li>
+              <li>Prüfung von Projektgrundlagen, Angeboten und Leistungsumfängen</li>
+              <li>Begleitung bei Abstimmungen mit Planern, Unternehmen und Projektbeteiligten</li>
+              <li>Erkennen technischer, wirtschaftlicher und organisatorischer Risiken</li>
+            </ul>
           </article>
 
           <article class="card">
-            <span class="service-kicker">Bauherren</span>
-            <h3>Bauherrenberatung</h3>
-            <p>Beratung privater, gewerblicher und öffentlicher Bauherren bei technischen, organisatorischen und projektbezogenen Fragestellungen mit Fokus auf Klarheit und Entscheidungsgrundlagen.</p>
+            <span class="service-kicker">02 · Kosten</span>
+            <h3>Kosten, Angebote & Nachträge</h3>
+            <p>Fachliche Unterstützung bei Angebotsvergleichen, Kostenkontrolle, Rechnungsfragen und Nachtragsbewertung.</p>
+            <ul class="service-list">
+              <li>Prüfung und Vergleich von Angeboten</li>
+              <li>Plausibilisierung von Leistungsumfängen</li>
+              <li>Unterstützung bei Ausschreibungs- und Vergabeentscheidungen</li>
+              <li>Flankierendes Kostencontrolling</li>
+              <li>Technische Prüfung und Strukturierung von Nachträgen</li>
+              <li>Unterstützung bei Rechnungs- und Leistungsabgrenzungen</li>
+            </ul>
           </article>
 
           <article class="card">
-            <span class="service-kicker">Dokumentation</span>
-            <h3>Bestandsaufnahmen und Beweissicherungen</h3>
-            <p>Bestandsaufnahmen und Beweissicherungen, etwa vor Baubeginn, zur nachvollziehbaren Dokumentation bestehender baulicher Situationen und angrenzender Bereiche.</p>
+            <span class="service-kicker">03 · Qualität</span>
+            <h3>Qualität, Baufortschritt & Dokumentation</h3>
+            <p>Begleitende Sichtung, Kontrolle und Dokumentation von Baufortschritt, Ausführungsqualität und offenen Punkten.</p>
+            <ul class="service-list">
+              <li>Baufortschrittskontrollen</li>
+              <li>Baubegleitende Qualitätsbegehungen</li>
+              <li>Fotodokumentationen und Zustandsfeststellungen</li>
+              <li>Bestandsaufnahmen und Beweissicherungen</li>
+              <li>Dokumentation von Mängeln, Abweichungen und offenen Leistungen</li>
+              <li>Unterstützung bei Begehungen, Übergaben und Abnahmen</li>
+            </ul>
           </article>
 
           <article class="card">
-            <span class="service-kicker">Optimierung</span>
-            <h3>Optimierungspotenziale in Planung, Ausschreibung und Bauphase</h3>
-            <p>Erarbeitung technischer und organisatorischer Optimierungspotenziale in der Ausschreibungsphase sowie begleitend in der Planungs- oder Bauphase.</p>
-          </article>
-
-          <article class="card">
-            <span class="service-kicker">Ausschreibung</span>
-            <h3>Ausschreibungs- und Vergabeunterstützung</h3>
-            <p>Mitwirkung bei der technischen Aufbereitung von Leistungsinhalten, bei Angebotsvergleichen sowie bei der strukturierten Vorbereitung von Vergabeentscheidungen.</p>
-          </article>
-
-          <article class="card">
-            <span class="service-kicker">Nachträge</span>
-            <h3>Nachtragsprüfung und technische Plausibilisierung</h3>
-            <p>Technische Prüfung, Strukturierung und Plausibilisierung von Nachtragsforderungen, Mehrkostenargumentationen und ergänzenden Leistungsansätzen.</p>
-          </article>
-
-          <article class="card">
-            <span class="service-kicker">Risiko</span>
-            <h3>Technisches Riskmanagement</h3>
-            <p>Technische Risikoanalyse und strukturierte Risikobetrachtung, insbesondere für Bauherren, Banken, Versicherungen und sonstige Projektbeteiligte.</p>
-          </article>
-
-          <article class="card">
-            <span class="service-kicker">Kontrolle</span>
-            <h3>Baubegleitung und Baufortschrittskontrollen</h3>
-            <p>Begleitende Baufortschrittskontrollen und Sichtungen für private, gewerbliche oder öffentliche Bauherren sowie für Banken, Versicherungen und Projektbeteiligte.</p>
-          </article>
-
-          <article class="card">
-            <span class="service-kicker">Kosten</span>
-            <h3>Flankierendes Kostencontrolling</h3>
-            <p>Begleitende Kostenbetrachtung, Plausibilisierung von Kostenentwicklungen und strukturierte Aufbereitung kostenrelevanter Projektthemen.</p>
-          </article>
-
-          <article class="card">
-            <span class="service-kicker">Schäden</span>
-            <h3>Schadensbegutachtungen mit Ursachenforschung</h3>
-            <p>Technische Schadensaufnahme, Ursachenforschung und Entwicklung praxistauglicher Sanierungs- und Lösungskonzepte auf Basis der vorliegenden baulichen Situation.</p>
-          </article>
-
-          <article class="card">
-            <span class="service-kicker">Stellungnahmen</span>
-            <h3>Technische Stellungnahmen und Privatgutachten</h3>
-            <p>Erstellung technischer Stellungnahmen und privater Fachbeurteilungen im Rahmen der fachlichen Qualifikation, insbesondere zur nachvollziehbaren Einordnung baulicher Sachverhalte.</p>
-          </article>
-
-          <article class="card">
-            <span class="service-kicker">Koordination</span>
-            <h3>Projektkoordination und Schnittstellenmanagement</h3>
-            <p>Unterstützung bei der Abstimmung zwischen Bauherren, Planern, ausführenden Unternehmen und weiteren Projektbeteiligten.</p>
+            <span class="service-kicker">04 · Risiko & Schäden</span>
+            <h3>Technisches Risiko- & Schadensmanagement</h3>
+            <p>Technische Einschätzung von Risiken, Schäden und Konfliktsituationen im Bauprojekt.</p>
+            <ul class="service-list">
+              <li>Technisches Risikomanagement für Bauherren, Banken und Versicherungen</li>
+              <li>Einschätzung von Ausführungs- und Projektabwicklungsrisiken</li>
+              <li>Technische Schadensaufnahme und Ursachenanalyse</li>
+              <li>Entwicklung von Sanierungs- und Lösungskonzepten</li>
+              <li>Unterstützung bei der technischen Aufarbeitung von Streit- und Problemfällen</li>
+              <li>Vorbereitung fachlicher Entscheidungsgrundlagen</li>
+            </ul>
           </article>
         </div>
 
-        <p class="section-note"><strong>Rechtlicher Hinweis:</strong> Der konkrete Leistungsumfang richtet sich nach Aufgabenstellung, Befugnislage und Projektanforderung. Reglementierte Leistungen, Einreichplanungen, statische Berechnungen, Energieausweise, hoheitliche Tätigkeiten sowie gerichtliche oder behördliche Sachverständigentätigkeiten werden nur erbracht, soweit dafür eine entsprechende Berechtigung, Bestellung oder Einbindung befugter Partner vorliegt.</p>
+        <p class="section-note"><strong>Saubere Abgrenzung:</strong> Der konkrete Leistungsumfang richtet sich nach Aufgabenstellung, Befugnislage und Projektanforderung. Reglementierte Planungsleistungen, statische Berechnungen, Energieausweise, hoheitliche Tätigkeiten sowie gerichtliche oder behördliche Sachverständigentätigkeiten werden nur erbracht, soweit dafür eine entsprechende Berechtigung, Bestellung oder Einbindung befugter Partner vorliegt.</p>
+      </div>
+    </section>
+
+    <section id="zielgruppen">
+      <div class="container">
+        <div class="section-head">
+          <h2>Für wen OBC arbeitet</h2>
+          <p>OBC unterstützt Auftraggeber, die technische Sicherheit, eine klare Projektstruktur und einen unabhängigen Blick auf Kosten, Qualität und Risiken benötigen.</p>
+        </div>
+
+        <div class="target-grid">
+          <article class="target-card">
+            <h3>Private Bauherren</h3>
+            <p>Unterstützung bei Neubau, Umbau, Sanierung, Abnahmen, Mängeln, Angeboten und Kostenfragen.</p>
+          </article>
+          <article class="target-card">
+            <h3>Gewerbliche Auftraggeber</h3>
+            <p>Technische Projektbegleitung für Unternehmen, Projektträger und Eigentümer von Betriebs- und Geschäftsgebäuden.</p>
+          </article>
+          <article class="target-card">
+            <h3>Banken & Versicherungen</h3>
+            <p>Baufortschrittskontrollen, technische Einschätzungen, Risikobetrachtungen und nachvollziehbare Dokumentationen.</p>
+          </article>
+          <article class="target-card">
+            <h3>Hausverwaltungen & Eigentümer</h3>
+            <p>Technische Unterstützung bei Instandhaltung, Sanierung, Schadensfällen und Entscheidungsgrundlagen.</p>
+          </article>
+          <article class="target-card">
+            <h3>Öffentliche Auftraggeber</h3>
+            <p>Projektbezogene Unterstützung bei technischen, organisatorischen und dokumentationsbezogenen Fragestellungen.</p>
+          </article>
+          <article class="target-card">
+            <h3>Rechtsanwälte</h3>
+            <p>Technische Aufarbeitung und sachliche Einordnung baulicher Sachverhalte im Rahmen privater Beauftragungen.</p>
+          </article>
+          <article class="target-card">
+            <h3>Bauträger & Projektentwickler</h3>
+            <p>Begleitende technische Sichtung von Kosten, Qualität, Schnittstellen, Projektstruktur und Risiken.</p>
+          </article>
+          <article class="target-card">
+            <h3>Planer & Ausführende</h3>
+            <p>Projektbezogene Unterstützung bei Koordination, Dokumentation, Leistungsabgrenzung und Schnittstellenklärung.</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -860,46 +936,48 @@
         <div class="about-copy">
           <div class="section-head">
             <h2>Über OBC</h2>
-            <p>OBC steht für technische Baukompetenz mit Praxisbezug.</p>
+            <p>OBC BauConsult e.U. steht für unabhängige technische Beratung im Hochbau.</p>
           </div>
-          <p>Die Grundlage bilden Erfahrung in Planung, Projektabwicklung, baulicher Koordination, Örtlicher Bauaufsicht, Projektsteuerung und qualitätsorientierter Projektbegleitung. Im Mittelpunkt steht eine Arbeitsweise, die technische Zusammenhänge klar aufbereitet, Probleme frühzeitig sichtbar macht und Lösungen mit Augenmaß entwickelt.</p>
-          <p>OBC versteht sich als verlässlicher Partner für alle, die Bauprojekte strukturiert, nachvollziehbar und mit fachlicher Tiefe angehen möchten.</p>
+          <p>OBC BauConsult e.U. wurde von <strong>Bmstr. Dipl.-Ing. Jérôme Ortner, BSc</strong> gegründet. Die fachliche Grundlage bilden ein Studium im Bauingenieurwesen, die abgeschlossene Baumeisterprüfung sowie langjährige Erfahrung in Planung, Bauleitung, Örtlicher Bauaufsicht, Ausschreibung, Vergabe, Abrechnung, Projektsteuerung und Bauherrenberatung.</p>
+          <p>Die Erfahrung reicht von Wohnbau, Geschäftsgebäuden und Tiefgaragen bis hin zu öffentlichen Bauten, Sanierungen und komplexen Hochbauprojekten. Im Mittelpunkt steht dabei immer das Interesse des Auftraggebers: klare Entscheidungsgrundlagen, nachvollziehbare Kosten, dokumentierte Qualität und eine strukturierte Projektabwicklung.</p>
+          <p>OBC versteht sich nicht als klassischer Ausführungsbetrieb, sondern als technischer Sparringspartner für Bauherren und Projektbeteiligte, wenn Entscheidungen fachlich abgesichert, Risiken erkannt oder bauliche Sachverhalte nachvollziehbar aufgearbeitet werden sollen.</p>
         </div>
 
         <aside class="about-side">
           <h3>Wofür OBC steht</h3>
           <div class="bullet-list">
-            <div class="bullet-item">Nachvollziehbare technische Einordnung</div>
-            <div class="bullet-item">Strukturierte Begleitung mit Projektbezug</div>
-            <div class="bullet-item">Lösungsorientiertes Denken mit Praxisfokus</div>
-            <div class="bullet-item">Klare Kommunikation und sachliche Aufbereitung</div>
+            <div class="bullet-item">Unabhängige technische Einordnung</div>
+            <div class="bullet-item">Bauherrenseitige Projektbegleitung</div>
+            <div class="bullet-item">Kosten-, Qualitäts- und Risikoblick</div>
+            <div class="bullet-item">Praxisorientierte Lösungsfindung</div>
+            <div class="bullet-item">Klare Kommunikation und sachliche Dokumentation</div>
           </div>
         </aside>
       </div>
     </section>
 
-    <section id="mehrwert">
+    <section id="arbeitsweise">
       <div class="container">
         <div class="section-head">
-          <h2>Erfahrung im baunahen Projektumfeld</h2>
-          <p>Erfahrung aus Planung, Koordination und technischer Begleitung bildet die Grundlage für eine sachliche, lösungsorientierte Arbeitsweise. Projekte werden nicht isoliert betrachtet, sondern im Zusammenspiel von Technik, Ablauf, Qualität, Risiko und Wirtschaftlichkeit.</p>
+          <h2>Arbeitsweise</h2>
+          <p>OBC arbeitet unabhängig, strukturiert und lösungsorientiert. Bauprojekte werden nicht nur technisch betrachtet, sondern auch hinsichtlich Kosten, Terminen, Risiken, Schnittstellen und praktischer Umsetzbarkeit bewertet.</p>
         </div>
         <div class="card-grid">
           <article class="card">
-            <h3>Technik</h3>
-            <p>Zusammenhänge erkennen, einordnen und so aufbereiten, dass sie im Projektalltag verwertbar sind.</p>
+            <h3>1. Thema erfassen</h3>
+            <p>Aufgabenstellung, Unterlagen, Projektstand und Zielsetzung werden sauber eingeordnet.</p>
           </article>
           <article class="card">
-            <h3>Ablauf</h3>
-            <p>Schnittstellen, Abstimmungen und Projektlogik mitdenken, um Reibungsverluste frühzeitig zu reduzieren.</p>
+            <h3>2. Risiken und Handlungsbedarf klären</h3>
+            <p>Technische, wirtschaftliche und organisatorische Risiken werden sichtbar gemacht und priorisiert.</p>
           </article>
           <article class="card">
-            <h3>Qualität</h3>
-            <p>Bauliche Themen sachlich betrachten und Hinweise so formulieren, dass daraus praktikable Schritte abgeleitet werden können.</p>
+            <h3>3. Entscheidungsgrundlage schaffen</h3>
+            <p>Die relevanten Punkte werden verständlich, nachvollziehbar und verwertbar aufbereitet.</p>
           </article>
           <article class="card">
-            <h3>Wirtschaftlichkeit</h3>
-            <p>Entscheidungen nicht losgelöst, sondern mit Blick auf Aufwand, Folgen, Risiko und Sinnhaftigkeit bewerten.</p>
+            <h3>4. Umsetzung begleiten</h3>
+            <p>Je nach Auftrag erfolgt eine weitere Begleitung, Dokumentation, Kontrolle oder Abstimmung im Projekt.</p>
           </article>
         </div>
       </div>
@@ -1014,7 +1092,7 @@
     <div class="container footer-grid">
       <div>
         <p><strong>obc-BauConsult e.U.</strong></p>
-        <p>Technische Beratung & Projektbegleitung im Hochbau</p>
+        <p>Unabhängige Bauherrenberatung & technische Projektbegleitung im Hochbau</p>
       </div>
       <div class="footer-links">
         <a href="impressum.html">Impressum</a>
