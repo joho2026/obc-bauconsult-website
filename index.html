@@ -288,7 +288,7 @@
 
     .hero {
       position: relative;
-      padding: 92px 0 84px;
+      padding: 76px 0 74px;
       overflow: hidden;
       background:
         radial-gradient(circle at 78% 20%, rgba(108, 21, 74, 0.1), transparent 30%),
@@ -312,9 +312,46 @@
     .hero-grid {
       position: relative;
       display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 54px;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 64px;
       align-items: center;
+    }
+
+    .hero .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+      color: var(--bordeaux);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.105em;
+      text-transform: uppercase;
+    }
+
+    .hero .section-kicker::before,
+    .hero .section-kicker::after {
+      content: "";
+      width: 46px;
+      height: 3px;
+      background: var(--bordeaux);
+      border-radius: 999px;
+      opacity: 0.95;
+    }
+
+    .hero h1 {
+      max-width: 720px;
+      font-size: clamp(38px, 4.6vw, 58px);
+      line-height: 1.08;
+      letter-spacing: -0.038em;
+      font-weight: 850;
+    }
+
+    .hero .lead {
+      max-width: 720px;
+      margin-top: 26px;
+      font-size: 18px;
+      line-height: 1.72;
     }
 
     .hero-actions {
@@ -331,7 +368,7 @@
       border-top: 7px solid var(--bordeaux);
       border-radius: 28px;
       box-shadow: var(--shadow);
-      padding: 40px;
+      padding: 38px;
       overflow: hidden;
     }
 
@@ -349,8 +386,8 @@
 
     .hero-card h2 {
       position: relative;
-      font-size: 31px;
-      line-height: 1.12;
+      font-size: 29px;
+      line-height: 1.16;
       letter-spacing: -0.035em;
       margin-bottom: 18px;
       z-index: 1;
@@ -838,7 +875,22 @@
       }
 
       .hero {
-        padding: 58px 0 56px;
+        padding: 54px 0 56px;
+      }
+
+      .hero-grid {
+        gap: 34px;
+      }
+
+      .hero .section-kicker::before,
+      .hero .section-kicker::after {
+        width: 30px;
+      }
+
+      .hero h1 {
+        max-width: 100%;
+        font-size: clamp(36px, 9vw, 48px);
+        line-height: 1.08;
       }
 
       .hero-grid,
@@ -881,8 +933,20 @@
         min-width: 205px;
       }
 
-      h1 {
-        font-size: clamp(36px, 12vw, 50px);
+      .hero .section-kicker {
+        gap: 10px;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+      }
+
+      .hero .section-kicker::before,
+      .hero .section-kicker::after {
+        width: 22px;
+      }
+
+      h1,
+      .hero h1 {
+        font-size: clamp(34px, 10vw, 44px);
       }
 
       .lead {
@@ -1445,13 +1509,13 @@
     function closeMobileMenu() {
       document.body.classList.remove("nav-open");
       menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Men&uuml; &ouml;ffnen");
+      menuToggle.setAttribute("aria-label", "Men\u00fc \u00f6ffnen");
     }
 
     menuToggle.addEventListener("click", function () {
       const isOpen = document.body.classList.toggle("nav-open");
       menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      menuToggle.setAttribute("aria-label", isOpen ? "Men&uuml; schlie&szlig;en" : "Men&uuml; &ouml;ffnen");
+      menuToggle.setAttribute("aria-label", isOpen ? "Men\u00fc schlie\u00dfen" : "Men\u00fc \u00f6ffnen");
     });
 
     mobileLinks.forEach(function (link) {
