@@ -3,1351 +3,846 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OBC – Ortner BauConsult e.U. | Baumeisterleistungen, Bauherrenberatung & Projektbegleitung</title>
-  <meta name="description" content="OBC – Ortner BauConsult e.U. bietet Bauherrenberatung, Baumeisterleistungen, Einreichpläne, Energieausweise, Ausschreibung, Vergabe, Bauleitung, ÖBA, Projektsteuerung, Kosten-, Qualitäts- und Risikomanagement im Hochbau." />
+
+  <title>OBC – Ortner BauConsult e.U. | Bauherrenberatung, Planung & Projektsteuerung</title>
+
+  <meta name="description" content="OBC – Ortner BauConsult e.U. unterstützt private, gewerbliche und öffentliche Bauherren bei Bauherrenberatung, Planung, Einreichung, Ausschreibung, Projektsteuerung, ÖBA und Bauleitung im Hochbau." />
 
   <style>
-    :root{
-      --bg:#f5f7fa;
-      --surface:#ffffff;
-      --surface-soft:#eef2f6;
-      --text:#16202b;
-      --muted:#5d6b79;
-      --muted-2:#7a8798;
-      --line:#d7e0e8;
-      --line-strong:#c7d3e2;
-      --accent:#1f4f78;
-      --accent-dark:#173a59;
-      --accent-soft:#e7eef5;
-      --success:#315f4b;
-      --shadow:0 18px 50px rgba(14,27,41,0.08);
-      --shadow-strong:0 28px 80px rgba(14,27,41,0.16);
-      --radius-lg:22px;
-      --radius-md:16px;
-      --radius-sm:12px;
-      --container:1200px;
+    :root {
+      --bg: #f7f4ef;
+      --card: #ffffff;
+      --text: #1e1e1e;
+      --muted: #666666;
+      --line: #ded6c9;
+      --accent: #8a6a3f;
+      --accent-dark: #5d4527;
+      --dark: #161616;
+      --max: 1120px;
+      --radius: 18px;
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
     }
 
-    *{box-sizing:border-box;}
-
-    html{scroll-behavior:smooth;}
-
-    body{
-      margin:0;
-      font-family:Arial, Helvetica, sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.6;
+    * {
+      box-sizing: border-box;
     }
 
-    img{max-width:100%;display:block;}
-    a{color:inherit;text-decoration:none;}
-    button{font:inherit;}
-
-    .container{
-      width:min(calc(100% - 32px), var(--container));
-      margin:0 auto;
+    html {
+      scroll-behavior: smooth;
     }
 
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      backdrop-filter:blur(14px);
-      background:rgba(245,247,250,0.90);
-      border-bottom:1px solid rgba(215,224,232,0.85);
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
 
-    .topbar-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      min-height:88px;
-      padding:4px 0;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .brand{
-      display:inline-flex;
-      align-items:center;
-      flex:0 0 auto;
-      line-height:0;
+    img {
+      max-width: 100%;
+      display: block;
     }
 
-    .brand-logo{
-      height:138px;
-      width:auto;
-      object-fit:contain;
-      display:block;
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
     }
 
-    .nav-toggle{
-      display:none;
-      width:48px;
-      height:48px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:var(--surface);
-      color:var(--accent-dark);
-      align-items:center;
-      justify-content:center;
-      flex-direction:column;
-      gap:5px;
-      cursor:pointer;
-      box-shadow:var(--shadow);
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 244, 239, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
     }
 
-    .nav-toggle span{
-      width:22px;
-      height:2px;
-      border-radius:99px;
-      background:var(--accent-dark);
-      display:block;
-      transition:transform 0.2s ease, opacity 0.2s ease;
+    .nav {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
     }
 
-    .nav-toggle.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-    .nav-toggle.is-open span:nth-child(2){opacity:0;}
-    .nav-toggle.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-
-    .nav-wrap{
-      display:flex;
-      align-items:center;
-      gap:22px;
-      margin-left:auto;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
     }
 
-    .nav{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
+    .brand img {
+      width: 58px;
+      height: auto;
     }
 
-    .nav a{
-      font-size:0.93rem;
-      color:var(--muted);
-      transition:color 0.2s ease;
-      white-space:nowrap;
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
     }
 
-    .nav a:hover,
-    .nav a:focus-visible{color:var(--accent-dark);}
-
-    .button{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      min-height:44px;
-      padding:0 20px;
-      border-radius:999px;
-      border:1px solid transparent;
-      font-weight:700;
-      font-size:0.93rem;
-      transition:transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-      cursor:pointer;
+    .brand-text strong {
+      font-size: 18px;
+      letter-spacing: 0.02em;
     }
 
-    .button:hover,
-    .button:focus-visible{transform:translateY(-1px);}
-
-    .button-primary{
-      background:var(--accent);
-      color:#fff;
-      box-shadow:var(--shadow);
+    .brand-text span {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
     }
 
-    .button-primary:hover,
-    .button-primary:focus-visible{background:var(--accent-dark);}
-
-    .button-secondary{
-      background:transparent;
-      color:var(--accent-dark);
-      border-color:var(--line);
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 14px;
+      color: #333;
     }
 
-    .button-secondary:hover,
-    .button-secondary:focus-visible{background:var(--surface-soft);}
-
-    main section{padding:88px 0;}
-
-    section,
-    #top,
-    #leistungen,
-    #ueber-obc,
-    #zielgruppen,
-    #expertise,
-    #erfahrung,
-    #arbeitsweise,
-    #partner,
-    #kontakt,
-    #warum-obc,
-    #mehrwert{
-      scroll-margin-top:150px;
+    .nav-links a:hover {
+      color: var(--accent-dark);
     }
 
-    .hero{padding:84px 0 76px;}
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.12fr 0.88fr;
-      gap:34px;
-      align-items:stretch;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: var(--dark);
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+      transition: 0.2s ease;
     }
 
-    .hero-copy,
-    .hero-panel{
-      background:var(--surface);
-      border:1px solid rgba(215,224,232,0.75);
-      border-radius:var(--radius-lg);
-      box-shadow:var(--shadow);
+    .btn:hover {
+      transform: translateY(-1px);
+      background: var(--accent-dark);
     }
 
-    .hero-copy{padding:52px;}
-
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:8px 14px;
-      border-radius:999px;
-      background:var(--surface-soft);
-      color:var(--accent-dark);
-      font-size:0.82rem;
-      font-weight:700;
-      letter-spacing:0.04em;
-      text-transform:uppercase;
+    .btn.secondary {
+      background: transparent;
+      color: var(--dark);
+      border: 1px solid var(--line);
     }
 
-    h1{
-      margin:16px 0 16px;
-      font-size:clamp(1.78rem, 2.55vw, 2.72rem);
-      line-height:1.14;
-      letter-spacing:-0.025em;
-      max-width:22ch;
+    .btn.secondary:hover {
+      background: #fff;
+      color: var(--dark);
     }
 
-    .hero-copy p{
-      margin:0;
-      font-size:1.04rem;
-      color:var(--muted);
-      max-width:64ch;
+    .hero {
+      padding: 78px 0 64px;
     }
 
-    .hero-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:14px;
-      margin-top:30px;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 38px;
+      align-items: center;
     }
 
-    .hero-note{
-      margin-top:24px;
-      padding-top:20px;
-      border-top:1px solid var(--line);
-      font-weight:700;
-      color:var(--accent-dark);
+    .eyebrow {
+      display: inline-flex;
+      margin-bottom: 18px;
+      color: var(--accent-dark);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
-    .hero-panel{
-      padding:32px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      gap:22px;
-      background:linear-gradient(180deg,#ffffff 0%,#f0f5f9 100%);
+    h1 {
+      margin: 0;
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
     }
 
-    .panel-title{
-      margin:0;
-      font-size:1.22rem;
-      line-height:1.3;
+    .hero p {
+      max-width: 700px;
+      margin: 24px 0 0;
+      font-size: 20px;
+      color: #444;
     }
 
-    .panel-text{margin:10px 0 0;color:var(--muted);}
-
-    .metric-list{display:grid;gap:14px;}
-
-    .metric-item{
-      padding:18px;
-      background:rgba(255,255,255,0.86);
-      border:1px solid rgba(215,224,232,0.95);
-      border-radius:var(--radius-md);
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
     }
 
-    .metric-item strong{
-      display:block;
-      margin-bottom:6px;
-      color:var(--accent-dark);
-      font-size:1rem;
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 30px;
     }
 
-    .section-head{
-      max-width:860px;
-      margin-bottom:34px;
+    .hero-card h2 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      line-height: 1.2;
     }
 
-    .section-head h2{
-      margin:0 0 14px;
-      font-size:clamp(1.8rem,2.8vw,2.8rem);
-      line-height:1.15;
-      letter-spacing:-0.02em;
+    .hero-card p {
+      font-size: 16px;
+      margin: 0;
+      color: var(--muted);
     }
 
-    .section-head p{
-      margin:0;
-      color:var(--muted);
-      font-size:1rem;
+    .facts {
+      margin-top: 26px;
+      display: grid;
+      gap: 12px;
     }
 
-    .card-grid{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:22px;
+    .fact {
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
     }
 
-    .service-grid{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:22px;
+    .fact strong {
+      display: block;
+      font-size: 15px;
     }
 
-    .target-grid{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:18px;
+    .fact span {
+      color: var(--muted);
+      font-size: 14px;
     }
 
-    .card,
-    .partner-card,
-    .target-card{
-      background:var(--surface);
-      border:1px solid rgba(215,224,232,0.9);
-      border-radius:var(--radius-lg);
-      padding:28px;
-      box-shadow:var(--shadow);
+    section {
+      padding: 72px 0;
+      border-top: 1px solid var(--line);
     }
 
-    .card h3,
-    .partner-card h3,
-    .target-card h3{
-      margin:0 0 10px;
-      font-size:1.08rem;
-      line-height:1.35;
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 34px;
     }
 
-    .card p,
-    .partner-card p,
-    .target-card p{margin:0;color:var(--muted);}
-
-    .service-kicker{
-      display:inline-flex;
-      margin-bottom:12px;
-      padding:6px 10px;
-      border-radius:999px;
-      background:var(--accent-soft);
-      color:var(--accent-dark);
-      font-size:0.76rem;
-      font-weight:700;
-      letter-spacing:0.04em;
-      text-transform:uppercase;
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
     }
 
-    .service-list{
-      margin:18px 0 0;
-      padding:0;
-      list-style:none;
-      display:grid;
-      gap:10px;
+    .section-head p {
+      margin: 16px 0 0;
+      font-size: 18px;
+      color: var(--muted);
     }
 
-    .service-list li{
-      position:relative;
-      padding-left:22px;
-      color:var(--muted);
+    .grid {
+      display: grid;
+      gap: 18px;
     }
 
-    .service-list li::before{
-      content:"";
-      position:absolute;
-      left:0;
-      top:0.72em;
-      width:8px;
-      height:8px;
-      border-radius:999px;
-      background:var(--accent);
+    .grid.cols-3 {
+      grid-template-columns: repeat(3, 1fr);
     }
 
-    .section-note{
-      margin:22px 0 0;
-      padding:18px 20px;
-      border:1px solid var(--line);
-      border-radius:var(--radius-md);
-      background:var(--surface-soft);
-      color:var(--muted);
-      font-size:0.96rem;
+    .grid.cols-2 {
+      grid-template-columns: repeat(2, 1fr);
     }
 
-    .section-note strong{color:var(--accent-dark);}
-
-    .reference-links{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:18px;
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
     }
 
-    .reference-link{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:42px;
-      padding:0 16px;
-      border-radius:999px;
-      border:1px solid var(--line-strong);
-      background:#ffffff;
-      color:var(--accent-dark);
-      font-weight:700;
-      font-size:0.92rem;
-      transition:transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      line-height: 1.2;
     }
 
-    .reference-link:hover,
-    .reference-link:focus-visible{
-      transform:translateY(-1px);
-      background:var(--accent-soft);
-      border-color:var(--accent);
+    .card p {
+      margin: 0;
+      color: var(--muted);
     }
 
-    .about-grid,
-    .contact-grid{
-      display:grid;
-      grid-template-columns:1fr 0.9fr;
-      gap:24px;
+    .project-list,
+    .service-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 22px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
     }
 
-    .about-copy,
-    .about-side,
-    .contact-copy,
-    .contact-side{
-      background:var(--surface);
-      border:1px solid rgba(215,224,232,0.9);
-      border-radius:var(--radius-lg);
-      padding:34px;
-      box-shadow:var(--shadow);
+    .project-list li,
+    .service-list li {
+      padding: 12px 0 12px 24px;
+      border-bottom: 1px solid var(--line);
+      position: relative;
     }
 
-    .about-copy p,
-    .about-side p,
-    .contact-copy p,
-    .contact-side p{margin:0 0 16px;color:var(--muted);}
-
-    .bullet-list{display:grid;gap:12px;margin-top:22px;}
-
-    .bullet-item{
-      padding:16px 18px;
-      border-radius:var(--radius-md);
-      background:var(--surface-soft);
-      border:1px solid var(--line);
-      color:var(--text);
-      font-weight:600;
+    .project-list li::before,
+    .service-list li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: var(--accent-dark);
+      font-weight: 700;
     }
 
-    .partner-grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:20px;
+    .quote-box {
+      background: var(--dark);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 34px;
+      margin-top: 28px;
     }
 
-    .partner-placeholder{
-      margin-top:14px;
-      padding:14px 16px;
-      border-radius:var(--radius-md);
-      background:var(--surface-soft);
-      border:1px dashed var(--line-strong);
-      color:var(--muted-2);
-      font-weight:700;
-      text-align:center;
+    .quote-box p {
+      margin: 0;
+      font-size: clamp(24px, 3vw, 36px);
+      line-height: 1.18;
+      letter-spacing: -0.03em;
     }
 
-    .contact-list{display:grid;gap:14px;margin:22px 0 0;}
-
-    .contact-row{
-      padding:16px 18px;
-      border-radius:var(--radius-md);
-      background:var(--surface-soft);
-      border:1px solid var(--line);
+    .steps {
+      counter-reset: step;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
     }
 
-    .contact-row span{
-      display:block;
-      font-size:0.82rem;
-      text-transform:uppercase;
-      letter-spacing:0.05em;
-      color:var(--muted);
-      margin-bottom:4px;
+    .step {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      position: relative;
     }
 
-    .contact-row strong,
-    .contact-row a{
-      font-size:1rem;
-      color:var(--accent-dark);
-      font-weight:700;
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--dark);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-bottom: 18px;
     }
 
-    .cta-box{
-      margin-top:24px;
-      padding:24px;
-      border-radius:var(--radius-md);
-      background:linear-gradient(135deg,var(--accent-dark),var(--accent));
-      color:#fff;
+    .step h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
     }
 
-    .cta-box h3{margin:0 0 8px;font-size:1.16rem;}
-    .cta-box p{margin:0 0 18px;color:rgba(255,255,255,0.88);}
-    .cta-box .button-secondary{background:#fff;border-color:#fff;color:var(--accent-dark);}
-
-    .logo-lightbox{
-      position:fixed;
-      inset:0;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding:24px;
-      background:rgba(8,14,21,0.86);
-      z-index:2000;
+    .step p {
+      margin: 0;
+      color: var(--muted);
     }
 
-    .logo-lightbox:target{display:flex;}
-
-    .logo-lightbox-content{
-      position:relative;
-      width:min(92vw,1200px);
-      max-height:90vh;
-      padding:28px;
-      border-radius:24px;
-      background:#ffffff;
-      box-shadow:var(--shadow-strong);
-      display:flex;
-      align-items:center;
-      justify-content:center;
+    .about {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 38px;
+      align-items: start;
     }
 
-    .logo-lightbox-content img{
-      max-width:100%;
-      max-height:calc(90vh - 56px);
-      object-fit:contain;
+    .about-logo {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 38px;
+      box-shadow: var(--shadow);
     }
 
-    .logo-lightbox-close{
-      position:absolute;
-      top:14px;
-      right:14px;
-      width:42px;
-      height:42px;
-      border-radius:999px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      background:var(--surface-soft);
-      border:1px solid var(--line);
-      color:var(--accent-dark);
-      font-size:1.2rem;
-      font-weight:700;
+    .about-logo img {
+      max-width: 240px;
+      margin: 0 auto;
     }
 
-    .back-to-top{
-      position:fixed;
-      right:20px;
-      bottom:20px;
-      width:52px;
-      height:52px;
-      border-radius:999px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      background:var(--accent);
-      color:#fff;
-      box-shadow:var(--shadow);
-      border:1px solid rgba(255,255,255,0.18);
-      font-size:1.2rem;
-      font-weight:700;
-      z-index:1200;
-      opacity:0;
-      visibility:hidden;
-      pointer-events:none;
-      transform:translateY(10px);
-      transition:opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease, background 0.2s ease;
+    .about-text p {
+      margin-top: 0;
+      color: var(--muted);
+      font-size: 17px;
     }
 
-    .back-to-top.is-visible{
-      opacity:1;
-      visibility:visible;
-      pointer-events:auto;
-      transform:translateY(0);
+    .contact {
+      background: var(--dark);
+      color: #fff;
     }
 
-    .back-to-top:hover,
-    .back-to-top:focus-visible{background:var(--accent-dark);}
-
-    .cookie-banner{
-      position:fixed;
-      left:20px;
-      right:20px;
-      bottom:20px;
-      z-index:1500;
-      background:rgba(22,32,43,0.96);
-      color:#ffffff;
-      border-radius:20px;
-      box-shadow:0 24px 60px rgba(0,0,0,0.22);
-      padding:20px 22px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
-      flex-wrap:wrap;
+    .contact .section-head p {
+      color: rgba(255, 255, 255, 0.72);
     }
 
-    .cookie-banner[hidden]{display:none;}
-
-    .cookie-copy{flex:1 1 520px;}
-    .cookie-copy strong{display:block;margin-bottom:6px;font-size:1rem;}
-    .cookie-copy p{margin:0;color:rgba(255,255,255,0.84);font-size:0.95rem;}
-    .cookie-copy a{color:#ffffff;text-decoration:underline;}
-
-    .cookie-actions{display:flex;gap:12px;flex-wrap:wrap;}
-    .cookie-actions .button{min-height:42px;}
-    .cookie-actions .button-secondary{border-color:rgba(255,255,255,0.26);color:#fff;background:transparent;}
-    .cookie-actions .button-secondary:hover,
-    .cookie-actions .button-secondary:focus-visible{background:rgba(255,255,255,0.08);}
-
-    .footer{
-      padding:34px 0 50px;
-      border-top:1px solid rgba(215,224,232,0.9);
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
     }
 
-    .footer-grid{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:24px;
-      flex-wrap:wrap;
+    .contact-card {
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius);
+      padding: 28px;
+      background: rgba(255, 255, 255, 0.05);
     }
 
-    .footer p{margin:0;color:var(--muted);}
-
-    .footer-links{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
+    .contact-card h3 {
+      margin: 0 0 12px;
+      font-size: 22px;
     }
 
-    .footer-links a{color:var(--accent-dark);font-weight:700;}
-
-    @media (max-width:1080px){
-      .partner-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
-      .target-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
-      .brand-logo{height:122px;}
-      .nav{gap:14px;}
+    .contact-card p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
     }
 
-    @media (max-width:980px){
+    .contact-card a {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    footer {
+      padding: 26px 0;
+      background: var(--dark);
+      color: rgba(255, 255, 255, 0.7);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 14px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        height: auto;
+        padding: 14px 0;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 52px 0 48px;
+      }
+
       .hero-grid,
-      .about-grid,
-      .contact-grid,
-      .card-grid,
-      .service-grid{grid-template-columns:1fr;}
-
-      .topbar-inner{
-        min-height:auto;
-        padding:10px 0;
-        align-items:center;
+      .about,
+      .contact-grid {
+        grid-template-columns: 1fr;
       }
 
-      .nav-wrap{gap:16px;}
-      .brand-logo{height:104px;}
-      .hero-copy{padding:40px 30px;}
-    }
-
-    @media (max-width:720px){
-      main section,
-      .hero{padding:68px 0;}
-
-      section,
-      #top,
-      #leistungen,
-      #ueber-obc,
-      #zielgruppen,
-      #expertise,
-      #erfahrung,
-      #arbeitsweise,
-      #partner,
-      #kontakt,
-      #warum-obc,
-      #mehrwert{
-        scroll-margin-top:118px;
+      .grid.cols-3,
+      .grid.cols-2,
+      .steps {
+        grid-template-columns: 1fr;
       }
 
-      .topbar-inner{
-        flex-direction:row;
-        gap:12px;
-        align-items:center;
+      .project-list,
+      .service-list {
+        grid-template-columns: 1fr;
       }
 
-      .brand{align-self:center;}
-      .brand-logo{height:84px;}
-
-      .nav-toggle{display:inline-flex;margin-left:auto;}
-
-      .nav-wrap{
-        position:absolute;
-        left:16px;
-        right:16px;
-        top:calc(100% + 8px);
-        width:auto;
-        display:none;
-        align-items:stretch;
-        flex-direction:column;
-        gap:12px;
-        padding:16px;
-        border-radius:20px;
-        background:rgba(255,255,255,0.98);
-        border:1px solid var(--line);
-        box-shadow:var(--shadow-strong);
+      .brand img {
+        width: 52px;
       }
 
-      .nav-wrap.is-open{display:flex;}
-
-      .nav{
-        flex-direction:column;
-        align-items:stretch;
-        justify-content:flex-start;
-        gap:6px;
+      .brand-text strong {
+        font-size: 16px;
       }
 
-      .nav a{
-        padding:10px 12px;
-        border-radius:12px;
-        background:var(--surface-soft);
+      .hero p {
+        font-size: 18px;
       }
 
-      .nav-cta{width:100%;}
-      .nav-cta .button{width:100%;}
-
-      .hero-copy,
-      .hero-panel,
-      .card,
-      .partner-card,
-      .target-card,
-      .about-copy,
-      .about-side,
-      .contact-copy,
-      .contact-side{padding:24px;}
-
-      .partner-grid,
-      .target-grid{grid-template-columns:1fr;}
-
-      .cookie-banner{
-        left:12px;
-        right:12px;
-        bottom:12px;
-        padding:18px;
+      section {
+        padding: 54px 0;
       }
     }
   </style>
 </head>
 
 <body>
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a class="brand" href="#logo-lightbox" aria-label="Logo von OBC – Ortner BauConsult e.U. vergrößern">
-        <img class="brand-logo" src="obc_Logo_NEU.png" alt="OBC – Ortner BauConsult e.U. Logo" />
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#start" aria-label="OBC Startseite">
+        <img src="obc_Logo_NEU.png" alt="OBC Logo" />
+        <span class="brand-text">
+          <strong>OBC</strong>
+          <span>Ortner BauConsult e.U.</span>
+        </span>
       </a>
 
-      <button class="nav-toggle" type="button" aria-label="Navigation öffnen" aria-expanded="false" aria-controls="main-nav">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <div class="nav-wrap" id="main-nav">
-        <nav class="nav" aria-label="Hauptnavigation">
-          <a href="#leistungen">Leistungen</a>
-          <a href="#zielgruppen">Auftraggeber</a>
-          <a href="#ueber-obc">Über OBC</a>
-          <a href="#erfahrung">Erfahrung</a>
-          <a href="#expertise">Expertise</a>
-          <a href="#partner">Fachpartner</a>
-          <a href="#kontakt">Kontakt</a>
-        </nav>
-        <div class="nav-cta">
-          <a class="button button-primary" href="#kontakt">Jetzt anfragen</a>
-        </div>
-      </div>
+      <nav class="nav-links" aria-label="Hauptnavigation">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#projekte">Projekte</a>
+        <a href="#warum">Warum OBC</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#kontakt" class="btn">Anfrage stellen</a>
+      </nav>
     </div>
   </header>
 
-  <main id="top">
+  <main id="start">
+
     <section class="hero">
       <div class="container hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow">OBC – Ortner BauConsult e.U.</div>
-          <h1>Bauherrenberatung, Baumeisterleistungen und technische Projektbegleitung im Hochbau.</h1>
-          <p>OBC – Ortner BauConsult e.U. steht für technische Beratung, Planung, Projektbegleitung und baumeisterliche Kompetenz im Hochbau. Das Leistungsbild reicht von Projektentwicklung, Einreichplanung und Energieausweis über Ausschreibung, Vergabe, Kosten- und Nachtragsmanagement bis zu Bauleitung, Örtlicher Bauaufsicht, Projektsteuerung, Qualitätssicherung und technischer Risikobewertung.</p>
+        <div>
+          <span class="eyebrow">Baumeister · Bauingenieur · BauConsult</span>
+
+          <h1>Bauherrenberatung, Planung & Projektsteuerung im Hochbau</h1>
+
+          <p>
+            OBC unterstützt private, gewerbliche und öffentliche Bauherren bei Bauprojekten
+            in der Südsteiermark und Umgebung — klar strukturiert, technisch fundiert und
+            mit Blick auf Kosten, Termine und Qualität.
+          </p>
+
           <div class="hero-actions">
-            <a class="button button-primary" href="#kontakt">Kontakt aufnehmen</a>
-            <a class="button button-secondary" href="#leistungen">Leistungen ansehen</a>
+            <a class="btn" href="#kontakt">Projekt besprechen</a>
+            <a class="btn secondary" href="#leistungen">Leistungen ansehen</a>
           </div>
-          <div class="hero-note">OBC. Ortner BauConsult. Technisch fundiert und bauherrenseitig gedacht.</div>
         </div>
 
-        <aside class="hero-panel" aria-label="Kurzübersicht">
-          <div>
-            <h2 class="panel-title">Technische Klarheit für sichere Entscheidungen</h2>
-            <p class="panel-text">Bauprojekte brauchen klare Entscheidungsgrundlagen, belastbare Plan- und Einreichunterlagen, nachvollziehbare Kosten, dokumentierte Qualität und einen sachlichen Blick auf technische Risiken.</p>
-          </div>
+        <aside class="hero-card">
+          <h2>Von der ersten Idee bis zur Umsetzung.</h2>
+          <p>
+            Planung, Einreichung, Ausschreibung, Vergabe, Projektsteuerung,
+            ÖBA, Bauleitung und Qualitätskontrolle — je nach Projektphase und Bedarf.
+          </p>
 
-          <div class="metric-list">
-            <div class="metric-item">
-              <strong>Bauherrenberatung</strong>
-              Fachliche Unterstützung bei Entscheidungen, Abstimmungen und technischen Fragestellungen im Hochbau.
+          <div class="facts">
+            <div class="fact">
+              <strong>Fachlich fundiert</strong>
+              <span>Bauingenieur mit TU-Abschluss und Baumeisterprüfung</span>
             </div>
-            <div class="metric-item">
-              <strong>Kosten, Angebote und Nachträge</strong>
-              Plausibilisierung von Leistungsumfängen, Kostenentwicklungen, Angeboten und Nachtragsforderungen.
+            <div class="fact">
+              <strong>Unabhängig begleitet</strong>
+              <span>Interessenvertretung für Bauherren</span>
             </div>
-            <div class="metric-item">
-              <strong>Einreichpläne und Energieausweise</strong>
-              Erstellung und Aufbereitung von Einreichunterlagen, Behördenabwicklung, Energieausweisen und bauphysikalischen Bewertungen im Rahmen der baumeisterlichen Befugnis.
-            </div>
-            <div class="metric-item">
-              <strong>Pharma, Sanierung und Bestand</strong>
-              Erfahrung aus anspruchsvollen Sanierungs- und Umbauprojekten, auch im sensiblen Pharma- und Industrieumfeld.
-            </div>
-            <div class="metric-item">
-              <strong>Qualität und Risikobewertung</strong>
-              Baufortschrittskontrollen, Dokumentation, technische Einschätzungen und lösungsorientierte Aufarbeitung.
+            <div class="fact">
+              <strong>Praxisnah gedacht</strong>
+              <span>Planung, Baustelle, Kosten und Qualität im Blick</span>
             </div>
           </div>
         </aside>
-      </div>
-    </section>
-
-    <section id="warum-obc">
-      <div class="container">
-        <div class="section-head">
-          <h2>Der technische Partner auf Seite des Auftraggebers</h2>
-          <p>OBC hilft dabei, Bauprojekte fachlich zu strukturieren, technisch richtig aufzusetzen und über die wesentlichen Projektphasen nachvollziehbar zu begleiten. Der Fokus liegt auf konkretem Nutzen: klare Grundlagen, saubere Entscheidungen, kontrollierbare Kosten, dokumentierte Qualität und lösungsorientierte Umsetzung.</p>
-        </div>
-        <div class="card-grid">
-          <article class="card">
-            <h3>Struktur statt Unklarheit</h3>
-            <p>Komplexe bauliche Themen werden geordnet, verständlich aufbereitet und auf die entscheidungsrelevanten Punkte reduziert.</p>
-          </article>
-          <article class="card">
-            <h3>Praxis statt Theorie</h3>
-            <p>Empfehlungen orientieren sich an realen Abläufen, Schnittstellen, Kostenfolgen und praktischer Umsetzbarkeit.</p>
-          </article>
-          <article class="card">
-            <h3>Kontrolle statt Blindflug</h3>
-            <p>Baufortschritt, Ausführungsqualität, Kostenveränderungen und Risiken werden nachvollziehbar dokumentiert und eingeordnet.</p>
-          </article>
-          <article class="card">
-            <h3>Bauherrenseitiger Blick</h3>
-            <p>OBC betrachtet Projekte mit klarem Blick auf Auftraggeberinteressen: technisch fundiert, kostenbewusst, dokumentiert und lösungsorientiert.</p>
-          </article>
-        </div>
       </div>
     </section>
 
     <section id="leistungen">
       <div class="container">
         <div class="section-head">
-          <h2>Leistungen</h2>
-          <p>OBC deckt ein breites baumeisterliches Leistungsbild im Hochbau ab – von der frühen Projektidee über Planung, Einreichung, Ausschreibung und Vergabe bis zur Bauleitung, Örtlichen Bauaufsicht, Projektsteuerung, Dokumentation, Kostenkontrolle und technischen Risikobewertung.</p>
+          <h2>Wobei ich unterstütze</h2>
+          <p>
+            Technische Beratung und Begleitung für Bauherren, die klare Entscheidungen,
+            nachvollziehbare Kosten und eine saubere Umsetzung brauchen.
+          </p>
         </div>
 
-        <div class="service-grid">
+        <div class="grid cols-3">
           <article class="card">
-            <span class="service-kicker">01 · Projektstart</span>
-            <h3>Projektentwicklung, Konzeption & Bauherrenberatung</h3>
-            <p>Technische Beratung und strukturierte Begleitung von Bauherren bei Neubau-, Umbau-, Sanierungs- und Immobilienprojekten – von der ersten Idee bis zur umsetzbaren Projektgrundlage.</p>
-            <ul class="service-list">
-              <li>Projektentwicklung und bauliche Konzeption</li>
-              <li>Beratung vor, während und nach der Bauphase</li>
-              <li>Prüfung von Projektgrundlagen, Bestand, Zielen und Rahmenbedingungen</li>
-              <li>Erarbeitung von Optimierungspotenzialen in Planung, Ausschreibung und Bauphase</li>
-              <li>Unterstützung bei Projektentscheidungen und Prioritätensetzung</li>
-              <li>Abstimmung mit Bauherren, Planern, Behörden, Unternehmen und Projektbeteiligten</li>
-            </ul>
+            <h3>Bauherrenberatung</h3>
+            <p>
+              Projektklärung, Variantenprüfung, Kosteneinschätzung und Entscheidungsfindung,
+              bevor teure Fehler entstehen.
+            </p>
           </article>
 
           <article class="card">
-            <span class="service-kicker">02 · Planung & Nachweise</span>
-            <h3>Bestandsaufnahme, Einreichplanung, Energieausweis & Behördenmanagement</h3>
-            <p>Planerische und nachweisbezogene Leistungen für Neu-, Zu-, Umbau- und Sanierungsprojekte – mit Blick auf Genehmigungsfähigkeit, technische Plausibilität und praktische Umsetzbarkeit.</p>
-            <ul class="service-list">
-              <li>Bestandsaufnahmen und planliche Aufbereitung bestehender Situationen</li>
-              <li>Entwurfs- und Einreichplanung für Neu-, Zu- und Umbauten</li>
-              <li>Einreichunterlagen und Behördenmanagement</li>
-              <li>Polier- und Detailplanung nach projektspezifischer Beauftragung</li>
-              <li>Energieausweiserstellung und bauphysikalische Bewertungen</li>
-              <li>Statische Berechnungen und Spezialnachweise im Rahmen der Befugnis bzw. bei Bedarf mit Fachpartnern</li>
-            </ul>
+            <h3>Planung & Einreichung</h3>
+            <p>
+              Begleitung von Neubauten, Umbauten und Sanierungen von der Grundlagenerhebung
+              bis zur Baubewilligung.
+            </p>
           </article>
 
           <article class="card">
-            <span class="service-kicker">03 · Kosten & Verträge</span>
-            <h3>Ausschreibung, Vergabe, Kostencontrolling & Nachtragsmanagement</h3>
-            <p>Fachliche Unterstützung bei Leistungsinhalten, Angebotsvergleichen, Vergabeentscheidungen, Kostenverfolgung, Rechnungsfragen und Nachträgen.</p>
-            <ul class="service-list">
-              <li>Ausschreibung und technische Aufbereitung von Leistungsinhalten</li>
-              <li>Angebotsprüfung und Angebotsvergleich</li>
-              <li>Vergabebegleitung und technische Vergabeempfehlungen</li>
-              <li>Flankierendes Kostencontrolling und Kostenverfolgung</li>
-              <li>Nachtragsprüfung und Nachtragsmanagement</li>
-              <li>Unterstützung bei Rechnungsprüfung, Leistungsabgrenzung und Abrechnung</li>
-            </ul>
+            <h3>Ausschreibung & Vergabe</h3>
+            <p>
+              Leistungsbeschreibungen, Angebotsprüfung, Vergabeempfehlungen und technische
+              Klärung mit ausführenden Firmen.
+            </p>
           </article>
 
           <article class="card">
-            <span class="service-kicker">04 · Baustelle</span>
-            <h3>Bauleitung, Örtliche Bauaufsicht, Projektsteuerung & Ausführungsbegleitung</h3>
-            <p>Baunahe Leitung, Kontrolle und Steuerung von Projekten mit Blick auf Qualität, Termine, Kosten, Schnittstellen, Dokumentation und praktische Umsetzbarkeit.</p>
-            <ul class="service-list">
-              <li>Bauleitung und Örtliche Bauaufsicht im Rahmen der Beauftragung</li>
-              <li>Projektsteuerung und baunahe Koordination</li>
-              <li>Baubegleitung und Baufortschrittskontrollen</li>
-              <li>Qualitätsbegehungen und Ausführungskontrollen</li>
-              <li>Schnittstellenmanagement zwischen Bauherr, Planung und Ausführung</li>
-              <li>Unterstützung bei Begehungen, Übergaben, Abnahmen und offenen Punkten</li>
-            </ul>
+            <h3>Projektsteuerung</h3>
+            <p>
+              Strukturierung, Termin- und Kostenkontrolle sowie Koordination zwischen
+              Bauherr, Planung, Behörden und Ausführung.
+            </p>
           </article>
 
           <article class="card">
-            <span class="service-kicker">05 · Bestand & Dokumentation</span>
-            <h3>Bestandsaufnahmen, Beweissicherung, Dokumentation & Sanierung</h3>
-            <p>Nachvollziehbare Erhebung, Dokumentation und technische Einordnung bestehender baulicher Situationen – besonders vor, während und nach Sanierungs-, Umbau- oder Nachbarbaustellen.</p>
-            <ul class="service-list">
-              <li>Bestandsaufnahmen und Zustandsfeststellungen</li>
-              <li>Beweissicherungen vor Baubeginn oder bei sensiblen Nachbarsituationen</li>
-              <li>Fotodokumentationen und strukturierte Protokollierung</li>
-              <li>Dokumentation von Mängeln, Abweichungen und offenen Leistungen</li>
-              <li>Technische Einordnung von Bestandsgebäuden und Sanierungserfordernissen</li>
-              <li>Begleitende Dokumentation für Bauherren, Banken, Versicherungen und Projektbeteiligte</li>
-            </ul>
+            <h3>Bauherrenvertretung</h3>
+            <p>
+              Vertretung Ihrer Interessen gegenüber Planern, Behörden und ausführenden Firmen.
+            </p>
           </article>
 
           <article class="card">
-            <span class="service-kicker">06 · Risiko & Schäden</span>
-            <h3>Technisches Risikomanagement, Schadensbegutachtung, Gutachtertätigkeit & fachliche Stellungnahmen</h3>
-            <p>Technische Einschätzung von Risiken, Schäden und Konfliktsituationen sowie Entwicklung praxistauglicher Lösungs- und Sanierungskonzepte.</p>
-            <ul class="service-list">
-              <li>Technisches Risikomanagement für Bauherren, Banken, Versicherungen und Projektträger</li>
-              <li>Schadensbegutachtungen mit Ursachenforschung</li>
-              <li>Entwicklung von Sanierungs- und Lösungskonzepten</li>
-              <li>Technische Aufarbeitung von Streit- und Problemfällen</li>
-              <li>Baumeisterliche Gutachtertätigkeiten im Hochbau</li>
-              <li>Fachliche Stellungnahmen, private Fachbeurteilungen und technische Entscheidungsgrundlagen</li>
-              <li>Vorbereitung und Unterstützung bei sachverständigenrelevanten Baufragen im Rahmen der fachlichen und rechtlichen Möglichkeiten</li>
-            </ul>
+            <h3>ÖBA, Bauleitung & Kontrolle</h3>
+            <p>
+              Örtliche Bauaufsicht, Bauleitung, Baufortschrittskontrolle, Rechnungsprüfung,
+              Mängelerkennung und technische Dokumentation.
+            </p>
           </article>
         </div>
-
-        <p class="section-note"><strong>Leistungsumfang &amp; Fachpartner:</strong> OBC bietet Leistungen im Rahmen der bestehenden baumeisterlichen Befugnis für planende und ausführende Tätigkeiten an. Dazu zählen je nach Aufgabenstellung auch fachliche Stellungnahmen, baumeisterliche Gutachtertätigkeiten und technische Beurteilungen baulicher Sachverhalte. Je nach Auftragsgröße, Auslastung oder speziellem Fachbereich können bewährte Fachpartner ergänzend beigezogen werden. Gerichtliche oder behördliche Sachverständigentätigkeiten sowie hoheitliche Aufgaben bleiben gesonderten Bestellungen und gesetzlichen Rahmenbedingungen vorbehalten.</p>
       </div>
     </section>
 
-    <section id="zielgruppen">
+    <section id="projekte">
       <div class="container">
         <div class="section-head">
-          <h2>Auftraggeber, Projektumfelder &amp; Anwendungsbereiche</h2>
-          <p>OBC richtet sich an private, gewerbliche, institutionelle und öffentliche Auftraggeber, die bautechnische Kompetenz, belastbare Entscheidungsgrundlagen und eine strukturierte Projektbegleitung benötigen – vom ersten Konzept über Planung, Einreichung und Umsetzung bis zur Dokumentation, Bewertung und fachlichen Aufarbeitung.</p>
+          <h2>Für welche Projekte?</h2>
+          <p>
+            OBC ist auf Hochbauprojekte spezialisiert — von privaten Bauvorhaben bis zur
+            technischen Begleitung gewerblicher und öffentlicher Projekte.
+          </p>
         </div>
 
-        <div class="target-grid">
-          <article class="target-card">
-            <h3>Private Bauherren</h3>
-            <p>Unterstützung bei Neubau, Umbau, Sanierung, Einreichplänen, Energieausweisen, Abnahmen, Mängeln, Angeboten, Kosten- und Nachtragsfragen.</p>
+        <ul class="project-list">
+          <li>Einfamilienhäuser</li>
+          <li>kleinere Mehrfamilienhäuser</li>
+          <li>Umbauten und Sanierungen</li>
+          <li>Zu- und Ausbauten</li>
+          <li>Geschäfts- und Gewerbeobjekte</li>
+          <li>technische Begleitung im Bestand</li>
+          <li>Bauherrenvertretung bei größeren Projekten</li>
+          <li>Baufortschritts- und Qualitätskontrollen</li>
+        </ul>
+
+        <div class="quote-box">
+          <p>
+            Was ist sinnvoll? Was ist notwendig? Und wo entstehen unnötige Kosten?
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="warum">
+      <div class="container">
+        <div class="section-head">
+          <h2>Warum OBC?</h2>
+          <p>
+            Bauprojekte werden oft dann teuer, wenn Grundlagen unklar sind, Angebote nicht
+            vergleichbar sind oder die Kontrolle auf der Baustelle zu spät beginnt.
+          </p>
+        </div>
+
+        <div class="grid cols-2">
+          <article class="card">
+            <h3>Früh klären</h3>
+            <p>
+              Je früher die Grundlagen sauber geprüft werden, desto geringer ist das Risiko
+              für Nachträge, Verzögerungen und Fehlentscheidungen.
+            </p>
           </article>
-          <article class="target-card">
-            <h3>Gewerbliche Auftraggeber</h3>
-            <p>Technische Projektbegleitung für Unternehmen, Projektträger und Eigentümer von Betriebs- und Geschäftsgebäuden.</p>
+
+          <article class="card">
+            <h3>Sauber strukturieren</h3>
+            <p>
+              Klare Zuständigkeiten, nachvollziehbare Abläufe und belastbare Unterlagen
+              schaffen Sicherheit für die weitere Umsetzung.
+            </p>
           </article>
-          <article class="target-card">
-            <h3>Pharma & Industrie</h3>
-            <p>Beratung, Leitung und technische Begleitung von Neubauten, Sanierungen, Umbauten und Teilprojekten in anspruchsvollen Projektumfeldern mit hohen Anforderungen an Qualität, Dokumentation, Schnittstellen, Kosten und Termine.</p>
+
+          <article class="card">
+            <h3>Fachlich begleiten</h3>
+            <p>
+              Technische Entscheidungen werden praxisnah bewertet — mit Blick auf Ausführung,
+              Kosten, Qualität und langfristige Nutzbarkeit.
+            </p>
           </article>
-          <article class="target-card">
-            <h3>Banken & Versicherungen</h3>
-            <p>Baufortschrittskontrollen, technische Einschätzungen, Risikobetrachtungen und nachvollziehbare Dokumentationen.</p>
-          </article>
-          <article class="target-card">
-            <h3>Hausverwaltungen & Eigentümer</h3>
-            <p>Technische Unterstützung bei Instandhaltung, Sanierung, Schadensfällen und Entscheidungsgrundlagen.</p>
-          </article>
-          <article class="target-card">
-            <h3>Öffentliche Auftraggeber</h3>
-            <p>Projektbezogene Unterstützung bei technischen, organisatorischen und dokumentationsbezogenen Fragestellungen.</p>
-          </article>
-          <article class="target-card">
-            <h3>Rechtsanwälte</h3>
-            <p>Technische Aufarbeitung und sachliche Einordnung baulicher Sachverhalte im Rahmen privater Beauftragungen.</p>
-          </article>
-          <article class="target-card">
-            <h3>Bauträger & Projektentwickler</h3>
-            <p>Begleitende technische Sichtung von Kosten, Qualität, Schnittstellen, Projektstruktur und Risiken.</p>
-          </article>
-          <article class="target-card">
-            <h3>Planer & Ausführende</h3>
-            <p>Projektbezogene Unterstützung bei Koordination, Dokumentation, Leistungsabgrenzung und Schnittstellenklärung.</p>
+
+          <article class="card">
+            <h3>Ehrlich einschätzen</h3>
+            <p>
+              Sie erhalten keine Standardlösung, sondern eine realistische technische
+              Einschätzung auf Basis von Baupraxis und Planungserfahrung.
+            </p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="ueber-obc">
-      <div class="container about-grid">
-        <div class="about-copy">
+    <section id="ueber">
+      <div class="container about">
+        <div class="about-logo">
+          <img src="obc_Logo_NEU.png" alt="OBC Logo" />
+        </div>
+
+        <div class="about-text">
           <div class="section-head">
-            <h2>Über OBC</h2>
-            <p><strong>OBC</strong> steht für <strong>Ortner BauConsult e.U.</strong> – unabhängige technische Beratung im Hochbau mit klarem Fokus auf Bauherreninteressen, Qualität, Kosten und Risiken.</p>
+            <h2>Fachlicher Hintergrund</h2>
           </div>
-          <p><strong>OBC – Ortner BauConsult e.U.</strong> wurde von <strong>Bmstr. Dipl.-Ing. Jérôme Ortner, BSc</strong> gegründet. Die fachliche Grundlage bilden das Studium der Bauingenieurwissenschaften an der TU Graz, die abgeschlossene Baumeisterprüfung sowie langjährige Erfahrung in Planung, Einreichplanung, Bauleitung, Örtlicher Bauaufsicht, Ausschreibung, Vergabe, Abrechnung, Projektsteuerung, Bauherrenberatung und baumeisterlicher Gutachtertätigkeit.</p>
-          <p>Die Erfahrung in der Beratung und Leitung reicht von Wohnbauprojekten, Geschäftsgebäuden und Tiefgaragen über öffentliche Bauten, Sanierungen und komplexe Hochbauprojekte bis hin zu umfangreichen Neubauten, Sanierungen und Umbauten im Pharmabereich.</p>
-          <p>OBC bündelt Erfahrung aus dem klassischen Hochbau, der Bauherrenvertretung, der Projektsteuerung, der Örtlichen Bauaufsicht sowie der Bauleitung im Neubau, Umbau und in der Sanierung in anspruchsvollen Projektumfeldern. Diese Praxis ist die Grundlage für realistische Einschätzungen, klare Prioritäten und umsetzbare Lösungen.</p>
-          <p>Hinzu kommen baumeisterliche Gutachtertätigkeiten, technische Stellungnahmen und fachliche Beurteilungen baulicher Sachverhalte. Die fachliche Weiterentwicklung umfasst auch die Vorbereitung auf weiterführende Sachverständigentätigkeiten im Bauwesen, insbesondere im Umfeld nichtamtlicher Bau-Sachverständigentätigkeiten.</p>
-          <p>Ergänzend bringt Jérôme Ortner wissenschaftliche Vertiefung im Bereich historischer Dachtragwerke, Holz-Holz-Verbindungen und Instandsetzung bestehender Holzkonstruktionen ein.</p>
-          <p>Im Mittelpunkt stehen belastbare Entscheidungsgrundlagen, nachvollziehbare Kosten, dokumentierte Qualität, klare Verantwortlichkeiten und eine strukturierte Projektabwicklung im Interesse des Auftraggebers.</p>
-        </div>
 
-        <aside class="about-side">
-          <h3>Kompetenzprofil</h3>
-          <div class="bullet-list">
-            <div class="bullet-item">Baumeisterliche Kompetenz in Planung und Ausführung</div>
-            <div class="bullet-item">Baumeisterliche Gutachtertätigkeiten und fachliche Beurteilungen</div>
-            <div class="bullet-item">Bauherrenseitige Beratung und Projektbegleitung</div>
-            <div class="bullet-item">Kosten-, Qualitäts- und Risikoblick</div>
-            <div class="bullet-item">Praxisorientierte Lösungsfindung</div>
-            <div class="bullet-item">Erfahrung im Pharma- und Industrieumfeld</div>
-            <div class="bullet-item">Klare Kommunikation und sachliche Dokumentation</div>
-          </div>
-        </aside>
+          <p>
+            Ich bin Bauingenieur mit TU-Abschluss und abgeschlossener Baumeisterprüfung.
+          </p>
+
+          <p>
+            Meine Erfahrung umfasst Hochbauprojekte im Wohn- und Gewerbebau, Projektentwicklung,
+            Einreichplanung, Ausschreibung und Vergabe, Bauleitung, örtliche Bauaufsicht,
+            Bauherrenvertretung sowie Baufortschritts- und Qualitätskontrollen.
+          </p>
+
+          <p>
+            Zusätzlich bringe ich Erfahrung aus Umbauten und Sanierungen im Industrie- und
+            Pharmaumfeld mit.
+          </p>
+
+          <p>
+            Fachlich beschäftige ich mich außerdem mit historischen Dachtragwerken,
+            Holzkonstruktionen und der Instandsetzung bestehender Bausubstanz.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section id="erfahrung">
+    <section id="ablauf">
       <div class="container">
         <div class="section-head">
-          <h2>Erfahrungsschwerpunkte</h2>
-          <p>OBC bündelt Erfahrung aus dem klassischen Hochbau, der Bauherrenvertretung, der Projektsteuerung, der Örtlichen Bauaufsicht sowie der Bauleitung im Neubau, Umbau und in der Sanierung in anspruchsvollen Projektumfeldern. Diese Praxis ist die Grundlage für realistische Einschätzungen, klare Prioritäten und umsetzbare Lösungen.</p>
+          <h2>Ablauf</h2>
+          <p>
+            Die Zusammenarbeit richtet sich nach Projektstand und Bedarf — von der ersten
+            Einschätzung bis zur laufenden Begleitung.
+          </p>
         </div>
 
-        <div class="card-grid">
-          <article class="card">
-            <span class="service-kicker">Pharma & Industrie</span>
-            <h3>Sanierungen und Umbauten im Pharmabereich</h3>
-            <p>Seit mehreren Jahren Tätigkeit in anspruchsvollen Pharma- und Industrieprojekten mit Beratung und Leitung diverser Neubau-, Sanierungs- und Umbauaufgaben. Dieses Umfeld stellt besonders hohe Anforderungen an technische Genauigkeit, Dokumentation, Schnittstellenmanagement, Qualität, Kosten- und Terminbewusstsein.</p>
+        <div class="steps">
+          <article class="step">
+            <h3>Erstes Gespräch</h3>
+            <p>Wir klären, worum es geht, wo das Projekt steht und welche Unterstützung sinnvoll ist.</p>
           </article>
 
-          <article class="card">
-            <span class="service-kicker">Hochbau</span>
-            <h3>Wohnbau, Geschäftsgebäude, Tiefgaragen & öffentliche Bauten</h3>
-            <p>Praktische Erfahrung in unterschiedlichen Hochbauprojekten – von Wohnbauprojekten, Geschäftsgebäuden und Tiefgaragen über öffentliche Bauten und Sanierungen bis hin zu komplexen Projektstrukturen.</p>
+          <article class="step">
+            <h3>Einschätzung</h3>
+            <p>Sie erhalten eine klare technische und organisatorische Einschätzung ohne unnötige Umwege.</p>
           </article>
 
-          <article class="card">
-            <span class="service-kicker">Projektabwicklung</span>
-            <h3>Projektentwicklung, Projektsteuerung & Bauherrenvertretung</h3>
-            <p>Erfahrung in der strukturierten Projektabwicklung von der frühen Projektphase über Abstimmungen und Schnittstellen bis zur Bauphase und Übergabe.</p>
+          <article class="step">
+            <h3>Begleitung</h3>
+            <p>Je nach Bedarf unterstütze ich einzelne Projektphasen oder das gesamte Vorhaben.</p>
           </article>
 
-          <article class="card">
-            <span class="service-kicker">Kosten & Verträge</span>
-            <h3>Ausschreibung, Vergabe, Nachträge & Abrechnung</h3>
-            <p>Fachliche Praxis in der Aufbereitung von Leistungsinhalten, Angebotsvergleichen, Vergabeentscheidungen, Nachtragsbewertungen und Abrechnungsfragen.</p>
-          </article>
-
-          <article class="card">
-            <span class="service-kicker">Gutachtertätigkeit</span>
-            <h3>Baumeisterliche Gutachtertätigkeiten & technische Fachbeurteilungen</h3>
-            <p>Erfahrung in der technischen Aufnahme, Bewertung und nachvollziehbaren Aufbereitung baulicher Sachverhalte – von Schadensbildern und Mängeln über Ausführungsfragen bis zu Sanierungs- und Lösungskonzepten.</p>
-          </article>
-
-          <article class="card">
-            <span class="service-kicker">Baustelle</span>
-            <h3>Bauleitung, Örtliche Bauaufsicht & Qualitätssicherung</h3>
-            <p>Baustellenerfahrung mit Blick auf Ausführung, Qualität, Baufortschritt, Dokumentation, Mängel, Schnittstellen und lösungsorientierte Abstimmung mit den Projektbeteiligten.</p>
-          </article>
-
-          <article class="card">
-            <span class="service-kicker">Bestand & Sanierung</span>
-            <h3>Bestandsgebäude, Sanierung & historische Holztragwerke</h3>
-            <p>Besondere fachliche Vertiefung bei bestehenden Konstruktionen, historischen Dachtragwerken, Holz-Holz-Verbindungen und der technischen Einordnung von Sanierungs- und Instandsetzungsfragen.</p>
+          <article class="step">
+            <h3>Kontrolle</h3>
+            <p>Kosten, Termine, Qualität und Ausführung werden geprüft und nachvollziehbar dokumentiert.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="expertise">
+    <section id="uebersicht">
       <div class="container">
         <div class="section-head">
-          <h2>Spezialkompetenz: historische Dachtragwerke & Holzverbindungen</h2>
-          <p>Neben der praktischen Hochbauerfahrung verfügt OBC über eine wissenschaftliche Vertiefung im Bereich historischer Holzkonstruktionen. Diese Kompetenz ist besonders wertvoll bei Bestandsgebäuden, Dachtragwerken, Sanierungen, Schadensbildern und der technischen Einordnung bestehender Holz-Holz-Verbindungen.</p>
+          <h2>Leistungen im Überblick</h2>
         </div>
 
-        <div class="card-grid">
-          <article class="card">
-            <span class="service-kicker">Masterarbeit</span>
-            <h3>Instandsetzungshandbuch für historische Dachwerke und deren Verbindungen</h3>
-            <p>Die Masterarbeit von DI Jérôme Ortner behandelt historische Dachwerke, deren Verbindungen und praxisbezogene Ansätze zur Instandsetzung. Sie verbindet wissenschaftliche Aufarbeitung mit bautechnischer Anwendbarkeit im Bestand.</p>
-          </article>
-
-          <article class="card">
-            <span class="service-kicker">Forschung</span>
-            <h3>Holz-Holz-Verbindungen in historischen und modernen Holztragwerken</h3>
-            <p>Die federführende Mitwirkung als wissenschaftlicher Projektassistent am Forschungsbericht zu Holz-Holz-Verbindungen vertiefte das Verständnis für das mechanische Verhalten historischer und moderner Holztragwerke, Anschlussdetails, Tragwerkslogik und mögliche Sanierungsansätze.</p>
-          </article>
-
-          <article class="card">
-            <span class="service-kicker">Bestand</span>
-            <h3>Technische Einordnung bestehender Holzkonstruktionen</h3>
-            <p>Gerade bei Sanierungen und Umbauten ist es entscheidend, historische Tragstrukturen nicht nur oberflächlich zu betrachten, sondern Aufbau, Verbindungsmittel, Lastabtragung, Schäden und Eingriffsmöglichkeiten fachlich einzuordnen.</p>
-          </article>
-
-          <article class="card">
-            <span class="service-kicker">Mehrwert</span>
-            <h3>Von der Forschung zur Baupraxis</h3>
-            <p>OBC verbindet praktische Bau- und Projektabwicklungserfahrung mit vertieftem Verständnis für bestehende Tragwerke. Daraus entstehen belastbare Entscheidungsgrundlagen für Bauherren, Planer und Projektbeteiligte.</p>
-          </article>
-        </div>
-
-        <div class="section-note">
-          <strong>Wissenschaftliche Arbeiten:</strong> Die fachliche Vertiefung umfasst unter anderem die Masterarbeit „Instandsetzungshandbuch für historische Dachwerke und deren Verbindungen“ sowie die federführende Mitwirkung als wissenschaftlicher Projektassistent am Forschungsbericht „Holz-Holz-Verbindungen – Mechanisches Verhalten von Holz-Holz-Verbindungen in historischen und modernen Holztragwerken“.
-          <div class="reference-links" aria-label="Externe Fachreferenzen">
-            <a class="reference-link" href="https://repository.tugraz.at/theses/57243" target="_blank" rel="noopener noreferrer">TU Graz Repository öffnen</a>
-            <a class="reference-link" href="https://www.holzbauforschung.at/forschung/forschungsprogramm-2013-2016/non-k-2013-2016/holz-holz-verbindungen" target="_blank" rel="noopener noreferrer">Holzbauforschung.at öffnen</a>
-          </div>
-        </div>
+        <ul class="service-list">
+          <li>Bauherrenberatung</li>
+          <li>Projektentwicklung</li>
+          <li>Einreichplanung</li>
+          <li>Behördenabwicklung</li>
+          <li>Ausschreibung und Vergabe</li>
+          <li>Projektsteuerung</li>
+          <li>Bauherrenvertretung</li>
+          <li>örtliche Bauaufsicht</li>
+          <li>Bauleitung</li>
+          <li>Baufortschrittskontrolle</li>
+          <li>Qualitätskontrolle</li>
+          <li>Rechnungsprüfung</li>
+          <li>Mängelbegleitung</li>
+          <li>technische Beratung bei Umbau und Sanierung</li>
+          <li>Unterstützung bei Energieausweisen über Fachpartner</li>
+          <li>Unterstützung bei Förderthemen über Fachpartner</li>
+        </ul>
       </div>
     </section>
 
-    <section id="arbeitsweise">
+    <section id="kontakt" class="contact">
       <div class="container">
         <div class="section-head">
-          <h2>Methodisches Vorgehen</h2>
-          <p>OBC verfolgt ein methodisches, praxisorientiertes Vorgehen: technische, wirtschaftliche und organisatorische Fragestellungen werden systematisch erfasst, priorisiert und in verwertbare Entscheidungsgrundlagen überführt. Neben der bautechnischen Beurteilung werden insbesondere Kosten, Termine, Risiken, Schnittstellen, Genehmigungsfähigkeit, Ausführbarkeit und wirtschaftliche Sinnhaftigkeit berücksichtigt.</p>
+          <h2>Kontakt</h2>
+          <p>
+            Sie möchten ein Bauprojekt besprechen oder eine fachliche Einschätzung einholen?
+          </p>
         </div>
-        <div class="card-grid">
-          <article class="card">
-            <h3>1. Ausgangslage analysieren</h3>
-            <p>Aufgabenstellung, vorhandene Unterlagen, Projektstand, Zielsetzung und Rahmenbedingungen werden fachlich eingeordnet.</p>
-          </article>
-          <article class="card">
-            <h3>2. Risiken und Handlungsbedarf ableiten</h3>
-            <p>Technische, wirtschaftliche und organisatorische Risiken werden identifiziert, gewichtet und in konkrete Handlungsfelder übersetzt.</p>
-          </article>
-          <article class="card">
-            <h3>3. Entscheidungsgrundlagen aufbereiten</h3>
-            <p>Die relevanten Sachverhalte werden nachvollziehbar dokumentiert, verständlich zusammengeführt und für weitere Entscheidungen verwertbar gemacht.</p>
-          </article>
-          <article class="card">
-            <h3>4. Umsetzung fachlich begleiten</h3>
-            <p>Je nach Beauftragung erfolgt die weitere planerische, technische, organisatorische oder baubegleitende Unterstützung im Projekt.</p>
-          </article>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>OBC – Ortner BauConsult e.U.</h3>
+            <p>
+              Bmstr. DI Jérôme Ortner, BSc.<br />
+              Ortnerweg 2<br />
+              8431 Gralla, Steiermark
+            </p>
+          </div>
+
+          <div class="contact-card">
+            <h3>Anfrage stellen</h3>
+            <p>
+              Telefon: <a href="tel:+4368120289417">+43 681 20289417</a><br />
+              E-Mail: <a href="mailto:ortner@obc-bauconsult.at">ortner@obc-bauconsult.at</a><br />
+              Web: <a href="https://www.obc.co.at">www.obc.co.at</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="quote-box">
+          <p>Bauen beginnt mit klaren Entscheidungen.</p>
         </div>
       </div>
     </section>
 
-    <section id="partner">
-      <div class="container">
-        <div class="section-head">
-          <h2>Fachpartner &amp; projektbezogene Ergänzung</h2>
-          <p>OBC übernimmt zentrale Leistungen im Rahmen der baumeisterlichen Befugnis selbst. Fachpartner werden projektbezogen dort beigezogen, wo Spezialwissen, zusätzliche Bearbeitungskapazitäten oder besondere Nachweise erforderlich sind – als ergänzende Fachressource und nicht als Ersatz für die technische Gesamtbetrachtung durch OBC.</p>
-        </div>
-
-        <div class="partner-grid">
-          <article class="partner-card">
-            <h3>Fachplanung</h3>
-            <p>Ergänzende Planungs- und Fachbeiträge können bei Bedarf projektbezogen eingebunden werden.</p>
-            <div class="partner-placeholder">bei Bedarf</div>
-          </article>
-
-          <article class="partner-card">
-            <h3>Statik / Tragwerksplanung</h3>
-            <p>Statische Berechnungen, Tragwerksplanung und Spezialnachweise werden je nach Aufgabenstellung selbst oder mit befugten Fachpartnern abgewickelt.</p>
-            <div class="partner-placeholder">bei Bedarf</div>
-          </article>
-
-          <article class="partner-card">
-            <h3>Bauphysik / Energie</h3>
-            <p>Energieausweise, bauphysikalische Bewertungen und ergänzende Nachweise werden entsprechend Projektumfang und Aufgabenstellung bearbeitet.</p>
-            <div class="partner-placeholder">bei Bedarf</div>
-          </article>
-
-          <article class="partner-card">
-            <h3>Ausführungs- und Detailplanung</h3>
-            <p>Ergänzende Ausführungs-, Detail- und Fachplanungen können bei Bedarf, Auslastung oder besonderen Projektanforderungen projektbezogen eingebunden werden.</p>
-            <div class="partner-placeholder">bei Bedarf</div>
-          </article>
-
-          <article class="partner-card">
-            <h3>Ausführung / Spezialgewerke</h3>
-            <p>Ausführende Unternehmen, Sondergewerke und Umsetzungspartner können projektbezogen beigezogen werden.</p>
-            <div class="partner-placeholder">bei Bedarf</div>
-          </article>
-
-          <article class="partner-card">
-            <h3>Sonderfachbereiche</h3>
-            <p>Weitere Fachbereiche wie Brandschutz, Haustechnik, Vermessung oder Spezialthemen werden bei Bedarf gezielt ergänzt.</p>
-            <div class="partner-placeholder">bei Bedarf</div>
-          </article>
-        </div>
-
-        <p class="section-note"><strong>Projektbezogene Ergänzung:</strong> Partner werden nur dort eingebunden, wo es fachlich sinnvoll, organisatorisch notwendig oder aufgrund des Projektumfangs zweckmäßig ist. Die zentrale technische Einordnung, Strukturierung und bauherrenseitige Begleitung bleibt bei OBC.</p>
-      </div>
-    </section>
-
-    <section id="kontakt">
-      <div class="container contact-grid">
-        <div class="contact-copy">
-          <div class="section-head">
-            <h2>Kontakt</h2>
-            <p>Sie möchten ein Bauprojekt entwickeln, planen, einreichen, technisch begleiten oder fachlich bewerten lassen? Sie benötigen zusätzlich einen Energieausweis, Unterstützung bei Ausschreibung, Vergabe, Kosten, Bauleitung, ÖBA, Sanierung, Nachträgen oder Schadensfragen? Dann freue ich mich über Ihre Kontaktaufnahme.</p>
-          </div>
-          <div class="cta-box">
-            <h3>Jetzt unverbindlich anfragen</h3>
-            <p>Der erste Austausch dient dazu, Thema, Rahmenbedingungen und möglichen Unterstützungsbedarf sauber einzuordnen.</p>
-            <a class="button button-secondary" href="mailto:info@obc.co.at">E-Mail senden</a>
-          </div>
-        </div>
-
-        <aside class="contact-side">
-          <h3>Kontaktdaten</h3>
-          <div class="contact-list">
-            <div class="contact-row">
-              <span>E-Mail</span>
-              <a href="mailto:info@obc.co.at">info@obc.co.at</a>
-            </div>
-            <div class="contact-row">
-              <span>Telefon</span>
-              <a href="tel:+4368120289417">+43 681 20289417</a>
-            </div>
-            <div class="contact-row">
-              <span>Standort</span>
-              <strong>Steiermark / Österreich</strong>
-            </div>
-          </div>
-          <p style="margin-top:22px;">Anfragen werden projektbezogen geprüft. Der konkrete Leistungsumfang wird vor Beauftragung klar festgelegt.</p>
-        </aside>
-      </div>
-    </section>
   </main>
 
-  <div id="logo-lightbox" class="logo-lightbox" aria-label="Vergrößerte Logodarstellung">
-    <div class="logo-lightbox-content">
-      <a class="logo-lightbox-close" href="#top" aria-label="Logodarstellung schließen">×</a>
-      <img src="obc_Logo_NEU.png" alt="OBC – Ortner BauConsult e.U. Logo groß" />
-    </div>
-  </div>
-
-  <a class="back-to-top" href="#top" aria-label="Zurück zum Seitenanfang">↑</a>
-
-  <div class="cookie-banner" id="cookie-banner">
-    <div class="cookie-copy">
-      <strong>Hinweis zur Datennutzung</strong>
-      <p>Diese Website verwendet derzeit keine Analyse- oder Marketing-Cookies. Zur Speicherung dieses Hinweises kann eine technisch erforderliche lokale Speicherung im Browser verwendet werden. Weitere Informationen finden Sie in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
-    </div>
-    <div class="cookie-actions">
-      <button class="button button-secondary" type="button" id="cookie-close">Schließen</button>
-      <button class="button button-primary" type="button" id="cookie-accept">Verstanden</button>
-    </div>
-  </div>
-
-  <footer class="footer">
-    <div class="container footer-grid">
+  <footer>
+    <div class="container footer-inner">
       <div>
-        <p><strong>OBC – Ortner BauConsult e.U.</strong></p>
-        <p>Bauherrenberatung, Baumeisterleistungen & technische Projektbegleitung im Hochbau</p>
+        © OBC – Ortner BauConsult e.U.
       </div>
+
       <div class="footer-links">
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
-        <a href="mailto:info@obc.co.at">E-Mail</a>
       </div>
     </div>
   </footer>
 
-  <script>
-    (function(){
-      const backToTop = document.querySelector('.back-to-top');
-      const navToggle = document.querySelector('.nav-toggle');
-      const navWrap = document.querySelector('.nav-wrap');
-      const navLinks = document.querySelectorAll('.nav a');
-      const cookieBanner = document.getElementById('cookie-banner');
-      const cookieAccept = document.getElementById('cookie-accept');
-      const cookieClose = document.getElementById('cookie-close');
-      const cookieKey = 'obc_notice_accepted';
-
-      function handleScroll(){
-        if(!backToTop) return;
-        if(window.scrollY > 220){
-          backToTop.classList.add('is-visible');
-        }else{
-          backToTop.classList.remove('is-visible');
-        }
-      }
-
-      window.addEventListener('scroll', handleScroll, { passive:true });
-      handleScroll();
-
-      if(navToggle && navWrap){
-        navToggle.addEventListener('click', function(){
-          const isOpen = navWrap.classList.toggle('is-open');
-          navToggle.classList.toggle('is-open', isOpen);
-          navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        });
-
-        navLinks.forEach(function(link){
-          link.addEventListener('click', function(){
-            navWrap.classList.remove('is-open');
-            navToggle.classList.remove('is-open');
-            navToggle.setAttribute('aria-expanded', 'false');
-          });
-        });
-      }
-
-      function hideCookieBanner(){
-        if(cookieBanner){
-          cookieBanner.hidden = true;
-        }
-      }
-
-      try{
-        if(localStorage.getItem(cookieKey) === '1'){
-          hideCookieBanner();
-        }
-      }catch(error){
-        // localStorage ist möglicherweise nicht verfügbar.
-      }
-
-      if(cookieAccept){
-        cookieAccept.addEventListener('click', function(){
-          try{
-            localStorage.setItem(cookieKey, '1');
-          }catch(error){
-            // localStorage ist möglicherweise nicht verfügbar.
-          }
-          hideCookieBanner();
-        });
-      }
-
-      if(cookieClose){
-        cookieClose.addEventListener('click', hideCookieBanner);
-      }
-    })();
-  </script>
 </body>
 </html>
