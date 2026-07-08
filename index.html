@@ -6,21 +6,33 @@
 
   <title>OBC – Ortner BauConsult e.U. | Bauherrenberatung, Planung & Projektsteuerung</title>
 
-  <meta name="description" content="OBC – Ortner BauConsult e.U. unterstützt private, gewerbliche und öffentliche Bauherren bei Bauherrenberatung, Planung, Einreichung, Ausschreibung, Projektsteuerung, ÖBA und Bauleitung im Hochbau." />
+  <meta
+    name="description"
+    content="OBC – Ortner BauConsult e.U. unterstützt private, gewerbliche und öffentliche Bauherren bei Bauherrenberatung, Planung, Einreichung, Ausschreibung, Projektsteuerung, ÖBA und Bauleitung im Hochbau."
+  />
 
   <style>
     :root {
-      --bg: #f7f4ef;
-      --card: #ffffff;
-      --text: #1e1e1e;
-      --muted: #666666;
-      --line: #ded6c9;
-      --accent: #8a6a3f;
-      --accent-dark: #5d4527;
-      --dark: #161616;
-      --max: 1120px;
-      --radius: 18px;
-      --shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+      --navy: #0f2747;
+      --navy-2: #16365f;
+      --navy-3: #21497c;
+      --navy-dark: #0b203a;
+
+      --bordeaux: #6c154a;
+      --bordeaux-dark: #4f0f36;
+
+      --gold: #c8a76a;
+      --cream: #f7f4ef;
+      --cream-2: #eee8dd;
+      --white: #ffffff;
+
+      --text: #182235;
+      --muted: #5f6877;
+      --line: rgba(15, 39, 71, 0.14);
+
+      --max: 1140px;
+      --radius: 20px;
+      --shadow: 0 22px 55px rgba(15, 39, 71, 0.13);
     }
 
     * {
@@ -34,7 +46,7 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
+      background: var(--cream);
       color: var(--text);
       line-height: 1.6;
     }
@@ -50,202 +62,334 @@
     }
 
     .container {
-      width: min(var(--max), calc(100% - 32px));
+      width: min(var(--max), calc(100% - 34px));
       margin: 0 auto;
     }
+
+    /* HEADER */
 
     header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: rgba(247, 244, 239, 0.94);
+      z-index: 50;
+      background:
+        linear-gradient(135deg, rgba(15, 39, 71, 0.98), rgba(11, 32, 58, 0.98));
+      border-bottom: 4px solid var(--bordeaux);
+      box-shadow: 0 14px 38px rgba(15, 39, 71, 0.24);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
     }
 
     .nav {
-      height: 78px;
+      min-height: 104px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 28px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 18px;
       min-width: 0;
     }
 
-    .brand img {
-      width: 58px;
+    .logo-box {
+      width: 112px;
+      min-width: 112px;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 10px;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(200, 167, 106, 0.45);
+      border-radius: 16px;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
+    }
+
+    .logo-box img {
+      width: 100%;
       height: auto;
+      object-fit: contain;
     }
 
     .brand-text {
       display: flex;
       flex-direction: column;
-      line-height: 1.15;
+      line-height: 1.12;
     }
 
     .brand-text strong {
-      font-size: 18px;
-      letter-spacing: 0.02em;
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
     }
 
     .brand-text span {
-      color: var(--muted);
+      margin-top: 7px;
+      color: rgba(255, 255, 255, 0.78);
       font-size: 13px;
-      margin-top: 4px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
       gap: 22px;
+      color: rgba(255, 255, 255, 0.88);
       font-size: 14px;
-      color: #333;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      transition: 0.18s ease;
     }
 
     .nav-links a:hover {
-      color: var(--accent-dark);
+      color: var(--gold);
     }
+
+    .nav-cta {
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: var(--bordeaux);
+      color: #ffffff !important;
+      box-shadow: 0 10px 24px rgba(108, 21, 74, 0.25);
+    }
+
+    .nav-cta:hover {
+      background: var(--bordeaux-dark);
+      color: #ffffff !important;
+      transform: translateY(-1px);
+    }
+
+    /* COMMON */
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 12px 18px;
+      min-height: 46px;
+      padding: 13px 20px;
       border-radius: 999px;
-      background: var(--dark);
-      color: #fff;
-      font-weight: 700;
-      font-size: 14px;
-      transition: 0.2s ease;
+      background: var(--bordeaux);
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 800;
+      border: 1px solid var(--bordeaux);
+      transition: 0.18s ease;
     }
 
     .btn:hover {
+      background: var(--bordeaux-dark);
+      border-color: var(--bordeaux-dark);
       transform: translateY(-1px);
-      background: var(--accent-dark);
     }
 
     .btn.secondary {
-      background: transparent;
-      color: var(--dark);
-      border: 1px solid var(--line);
+      background: #ffffff;
+      color: var(--navy);
+      border-color: rgba(15, 39, 71, 0.18);
     }
 
     .btn.secondary:hover {
-      background: #fff;
-      color: var(--dark);
-    }
-
-    .hero {
-      padding: 78px 0 64px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 38px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      margin-bottom: 18px;
-      color: var(--accent-dark);
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(38px, 6vw, 68px);
-      line-height: 1.02;
-      letter-spacing: -0.04em;
-    }
-
-    .hero p {
-      max-width: 700px;
-      margin: 24px 0 0;
-      font-size: 20px;
-      color: #444;
-    }
-
-    .hero-actions {
-      margin-top: 34px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .hero-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 30px;
-    }
-
-    .hero-card h2 {
-      margin: 0 0 12px;
-      font-size: 24px;
-      line-height: 1.2;
-    }
-
-    .hero-card p {
-      font-size: 16px;
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .facts {
-      margin-top: 26px;
-      display: grid;
-      gap: 12px;
-    }
-
-    .fact {
-      padding: 14px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .fact strong {
-      display: block;
-      font-size: 15px;
-    }
-
-    .fact span {
-      color: var(--muted);
-      font-size: 14px;
+      color: var(--bordeaux);
+      border-color: var(--bordeaux);
     }
 
     section {
-      padding: 72px 0;
+      padding: 76px 0;
       border-top: 1px solid var(--line);
     }
 
     .section-head {
-      max-width: 760px;
-      margin-bottom: 34px;
+      max-width: 780px;
+      margin-bottom: 36px;
     }
 
-    .section-head h2 {
-      margin: 0;
-      font-size: clamp(30px, 4vw, 46px);
-      line-height: 1.1;
-      letter-spacing: -0.03em;
+    .section-kicker {
+      display: inline-flex;
+      margin-bottom: 12px;
+      color: var(--bordeaux);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    .section-head p {
-      margin: 16px 0 0;
-      font-size: 18px;
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 0;
+      color: var(--navy-dark);
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      color: var(--navy);
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      color: var(--navy);
+      font-size: 22px;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    p {
       color: var(--muted);
     }
+
+    .lead {
+      margin: 24px 0 0;
+      max-width: 760px;
+      color: #3d4656;
+      font-size: 20px;
+      line-height: 1.58;
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      padding: 86px 0 74px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 78% 18%, rgba(108, 21, 74, 0.13), transparent 28%),
+        radial-gradient(circle at 20% 8%, rgba(33, 73, 124, 0.12), transparent 30%),
+        linear-gradient(180deg, #f8f5ee 0%, #eee8dd 100%);
+      border-top: 0;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(15, 39, 71, 0.06) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(15, 39, 71, 0.045) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.38;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.18fr 0.82fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      color: var(--bordeaux);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-kicker::before {
+      content: "";
+      width: 36px;
+      height: 3px;
+      background: var(--bordeaux);
+      border-radius: 999px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .hero-card {
+      position: relative;
+      background: #ffffff;
+      border: 1px solid rgba(15, 39, 71, 0.13);
+      border-top: 6px solid var(--bordeaux);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 34px;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "OBC";
+      position: absolute;
+      right: -16px;
+      bottom: -28px;
+      color: rgba(15, 39, 71, 0.045);
+      font-size: 118px;
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      pointer-events: none;
+    }
+
+    .hero-card h2 {
+      position: relative;
+      font-size: 27px;
+      letter-spacing: -0.025em;
+      margin-bottom: 14px;
+      z-index: 1;
+    }
+
+    .hero-card p {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 0;
+      font-size: 16px;
+    }
+
+    .facts {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0;
+      margin-top: 28px;
+    }
+
+    .fact {
+      padding: 16px 0;
+      border-top: 1px solid rgba(15, 39, 71, 0.12);
+    }
+
+    .fact strong {
+      display: block;
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .fact span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* CARDS */
 
     .grid {
       display: grid;
@@ -261,64 +405,167 @@
     }
 
     .card {
-      background: var(--card);
-      border: 1px solid var(--line);
+      background: #ffffff;
+      border: 1px solid rgba(15, 39, 71, 0.12);
+      border-top: 5px solid var(--bordeaux);
       border-radius: var(--radius);
-      padding: 26px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-    }
-
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 22px;
-      line-height: 1.2;
+      padding: 28px;
+      box-shadow: 0 10px 28px rgba(15, 39, 71, 0.055);
     }
 
     .card p {
-      margin: 0;
-      color: var(--muted);
+      margin-bottom: 0;
+      font-size: 16px;
     }
 
-    .project-list,
-    .service-list {
+    .dark-section {
+      background:
+        radial-gradient(circle at 82% 22%, rgba(108, 21, 74, 0.32), transparent 32%),
+        linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+      color: #ffffff;
+    }
+
+    .dark-section h2,
+    .dark-section h3 {
+      color: #ffffff;
+    }
+
+    .dark-section p {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .dark-section .section-kicker {
+      color: var(--gold);
+    }
+
+    .dark-section .card {
+      background: rgba(255, 255, 255, 0.075);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-top: 5px solid var(--gold);
+      box-shadow: none;
+    }
+
+    .dark-section .card p {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    /* LISTS */
+
+    .list {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 10px 22px;
+      gap: 10px 24px;
       margin: 0;
       padding: 0;
       list-style: none;
     }
 
-    .project-list li,
-    .service-list li {
-      padding: 12px 0 12px 24px;
-      border-bottom: 1px solid var(--line);
+    .list li {
       position: relative;
-    }
-
-    .project-list li::before,
-    .service-list li::before {
-      content: "–";
-      position: absolute;
-      left: 0;
-      color: var(--accent-dark);
+      padding: 13px 0 13px 28px;
+      border-bottom: 1px solid rgba(15, 39, 71, 0.13);
+      color: #263247;
       font-weight: 700;
     }
 
+    .list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 22px;
+      width: 12px;
+      height: 3px;
+      background: var(--bordeaux);
+      border-radius: 999px;
+    }
+
+    .dark-section .list li {
+      color: rgba(255, 255, 255, 0.88);
+      border-bottom-color: rgba(255, 255, 255, 0.16);
+    }
+
+    .dark-section .list li::before {
+      background: var(--gold);
+    }
+
     .quote-box {
-      background: var(--dark);
-      color: #fff;
-      border-radius: var(--radius);
+      margin-top: 30px;
       padding: 34px;
-      margin-top: 28px;
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 58%, var(--bordeaux) 100%);
+      color: #ffffff;
+      box-shadow: var(--shadow);
     }
 
     .quote-box p {
       margin: 0;
+      color: #ffffff;
       font-size: clamp(24px, 3vw, 36px);
+      font-weight: 800;
       line-height: 1.18;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.035em;
     }
+
+    /* ABOUT */
+
+    .about {
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .about-logo {
+      position: sticky;
+      top: 136px;
+      background: #ffffff;
+      border: 1px solid rgba(15, 39, 71, 0.13);
+      border-top: 6px solid var(--bordeaux);
+      border-radius: 24px;
+      padding: 42px 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-logo img {
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    .about-text p {
+      font-size: 17px;
+      margin-bottom: 16px;
+    }
+
+    .credentials {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .credential {
+      padding: 18px;
+      border-radius: 16px;
+      background: rgba(15, 39, 71, 0.055);
+      border: 1px solid rgba(15, 39, 71, 0.09);
+    }
+
+    .credential strong {
+      display: block;
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .credential span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* STEPS */
 
     .steps {
       counter-reset: step;
@@ -328,71 +575,54 @@
     }
 
     .step {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 24px;
       position: relative;
+      background: #ffffff;
+      border: 1px solid rgba(15, 39, 71, 0.12);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: 0 10px 28px rgba(15, 39, 71, 0.055);
     }
 
     .step::before {
       counter-increment: step;
       content: counter(step);
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--dark);
-      color: #fff;
+      width: 40px;
+      height: 40px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-
-    .step h3 {
-      margin: 0 0 8px;
-      font-size: 20px;
+      margin-bottom: 20px;
+      border-radius: 50%;
+      background: var(--bordeaux);
+      color: #ffffff;
+      font-weight: 900;
+      box-shadow: 0 8px 18px rgba(108, 21, 74, 0.25);
     }
 
     .step p {
-      margin: 0;
-      color: var(--muted);
+      margin-bottom: 0;
     }
 
-    .about {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 38px;
-      align-items: start;
-    }
-
-    .about-logo {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 38px;
-      box-shadow: var(--shadow);
-    }
-
-    .about-logo img {
-      max-width: 240px;
-      margin: 0 auto;
-    }
-
-    .about-text p {
-      margin-top: 0;
-      color: var(--muted);
-      font-size: 17px;
-    }
+    /* CONTACT */
 
     .contact {
-      background: var(--dark);
-      color: #fff;
+      background:
+        radial-gradient(circle at 82% 10%, rgba(108, 21, 74, 0.35), transparent 28%),
+        linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+      color: #ffffff;
     }
 
-    .contact .section-head p {
-      color: rgba(255, 255, 255, 0.72);
+    .contact h2,
+    .contact h3 {
+      color: #ffffff;
+    }
+
+    .contact p {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .contact .section-kicker {
+      color: var(--gold);
     }
 
     .contact-grid {
@@ -402,31 +632,47 @@
     }
 
     .contact-card {
+      padding: 30px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.075);
       border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: var(--radius);
-      padding: 28px;
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .contact-card h3 {
-      margin: 0 0 12px;
-      font-size: 22px;
     }
 
     .contact-card p {
-      margin: 0;
-      color: rgba(255, 255, 255, 0.78);
+      margin-bottom: 0;
     }
 
     .contact-card a {
-      color: #fff;
-      font-weight: 700;
+      color: #ffffff;
+      font-weight: 900;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .contact-actions .btn.secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-actions .btn.secondary:hover {
+      background: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      border-color: var(--gold);
     }
 
     footer {
-      padding: 26px 0;
-      background: var(--dark);
-      color: rgba(255, 255, 255, 0.7);
+      padding: 28px 0;
+      background: #081829;
+      color: rgba(255, 255, 255, 0.72);
       border-top: 1px solid rgba(255, 255, 255, 0.12);
       font-size: 14px;
     }
@@ -440,23 +686,47 @@
 
     .footer-links {
       display: flex;
-      gap: 16px;
+      gap: 18px;
       flex-wrap: wrap;
     }
 
-    @media (max-width: 900px) {
-      .nav {
-        height: auto;
-        padding: 14px 0;
-        align-items: flex-start;
-      }
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.78);
+    }
 
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 980px) {
       .nav-links {
         display: none;
       }
 
+      .nav {
+        min-height: 96px;
+      }
+
+      .logo-box {
+        width: 100px;
+        min-width: 100px;
+        height: 68px;
+      }
+
+      .brand-text strong {
+        font-size: 19px;
+        white-space: normal;
+      }
+
+      .brand-text span {
+        font-size: 12px;
+        letter-spacing: 0.055em;
+      }
+
       .hero {
-        padding: 52px 0 48px;
+        padding: 56px 0 54px;
       }
 
       .hero-grid,
@@ -465,31 +735,88 @@
         grid-template-columns: 1fr;
       }
 
+      .about-logo {
+        position: static;
+      }
+
       .grid.cols-3,
       .grid.cols-2,
       .steps {
         grid-template-columns: 1fr;
       }
 
-      .project-list,
-      .service-list {
+      .list {
         grid-template-columns: 1fr;
       }
 
-      .brand img {
-        width: 52px;
+      section {
+        padding: 58px 0;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(var(--max), calc(100% - 26px));
+      }
+
+      .nav {
+        min-height: 90px;
+      }
+
+      .brand {
+        gap: 12px;
+      }
+
+      .logo-box {
+        width: 86px;
+        min-width: 86px;
+        height: 60px;
+        border-radius: 13px;
       }
 
       .brand-text strong {
         font-size: 16px;
       }
 
-      .hero p {
+      .brand-text span {
+        font-size: 10px;
+        margin-top: 5px;
+      }
+
+      h1 {
+        font-size: clamp(36px, 12vw, 50px);
+      }
+
+      .lead {
         font-size: 18px;
       }
 
-      section {
-        padding: 54px 0;
+      .hero-actions,
+      .contact-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-card,
+      .card,
+      .quote-box,
+      .contact-card,
+      .about-logo,
+      .step {
+        border-radius: 18px;
+      }
+
+      .hero-card,
+      .card,
+      .contact-card {
+        padding: 24px;
+      }
+
+      .about-logo img {
+        max-width: 300px;
       }
     }
   </style>
@@ -500,10 +827,13 @@
   <header>
     <div class="container nav">
       <a class="brand" href="#start" aria-label="OBC Startseite">
-        <img src="obc_Logo_NEU.png" alt="OBC Logo" />
+        <span class="logo-box">
+          <img src="obc_Logo_NEU.png" alt="OBC – Ortner BauConsult Logo" />
+        </span>
+
         <span class="brand-text">
-          <strong>OBC</strong>
-          <span>Ortner BauConsult e.U.</span>
+          <strong>Ortner BauConsult e.U.</strong>
+          <span>OBC · Baumeister · Bauingenieur</span>
         </span>
       </a>
 
@@ -512,7 +842,7 @@
         <a href="#projekte">Projekte</a>
         <a href="#warum">Warum OBC</a>
         <a href="#ablauf">Ablauf</a>
-        <a href="#kontakt" class="btn">Anfrage stellen</a>
+        <a href="#kontakt" class="nav-cta">Kontakt</a>
       </nav>
     </div>
   </header>
@@ -522,11 +852,11 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <span class="eyebrow">Baumeister · Bauingenieur · BauConsult</span>
+          <span class="hero-kicker">BauConsult im Hochbau</span>
 
-          <h1>Bauherrenberatung, Planung & Projektsteuerung im Hochbau</h1>
+          <h1>Bauherrenberatung, Planung & Projektsteuerung.</h1>
 
-          <p>
+          <p class="lead">
             OBC unterstützt private, gewerbliche und öffentliche Bauherren bei Bauprojekten
             in der Südsteiermark und Umgebung — klar strukturiert, technisch fundiert und
             mit Blick auf Kosten, Termine und Qualität.
@@ -541,22 +871,24 @@
         <aside class="hero-card">
           <h2>Von der ersten Idee bis zur Umsetzung.</h2>
           <p>
-            Planung, Einreichung, Ausschreibung, Vergabe, Projektsteuerung,
-            ÖBA, Bauleitung und Qualitätskontrolle — je nach Projektphase und Bedarf.
+            Beratung, Planung, Einreichung, Ausschreibung, Vergabe, Projektsteuerung,
+            ÖBA, Bauleitung und Qualitätskontrolle — je nach Projektstand und Bedarf.
           </p>
 
           <div class="facts">
             <div class="fact">
               <strong>Fachlich fundiert</strong>
-              <span>Bauingenieur mit TU-Abschluss und Baumeisterprüfung</span>
+              <span>Bauingenieur mit TU-Abschluss und abgeschlossener Baumeisterprüfung</span>
             </div>
+
             <div class="fact">
               <strong>Unabhängig begleitet</strong>
-              <span>Interessenvertretung für Bauherren</span>
+              <span>Interessenvertretung für Bauherren statt Verkaufsargumente</span>
             </div>
+
             <div class="fact">
               <strong>Praxisnah gedacht</strong>
-              <span>Planung, Baustelle, Kosten und Qualität im Blick</span>
+              <span>Planung, Baustelle, Kosten und Qualität gemeinsam betrachtet</span>
             </div>
           </div>
         </aside>
@@ -566,8 +898,9 @@
     <section id="leistungen">
       <div class="container">
         <div class="section-head">
-          <h2>Wobei ich unterstütze</h2>
-          <p>
+          <span class="section-kicker">Leistungen</span>
+          <h2>Wobei OBC unterstützt</h2>
+          <p class="lead">
             Technische Beratung und Begleitung für Bauherren, die klare Entscheidungen,
             nachvollziehbare Kosten und eine saubere Umsetzung brauchen.
           </p>
@@ -586,7 +919,7 @@
             <h3>Planung & Einreichung</h3>
             <p>
               Begleitung von Neubauten, Umbauten und Sanierungen von der Grundlagenerhebung
-              bis zur Baubewilligung.
+              bis zur Einreichung und Baubewilligung.
             </p>
           </article>
 
@@ -609,32 +942,34 @@
           <article class="card">
             <h3>Bauherrenvertretung</h3>
             <p>
-              Vertretung Ihrer Interessen gegenüber Planern, Behörden und ausführenden Firmen.
+              Vertretung Ihrer Interessen gegenüber Planern, Behörden und ausführenden Firmen —
+              sachlich, nachvollziehbar und lösungsorientiert.
             </p>
           </article>
 
           <article class="card">
-            <h3>ÖBA, Bauleitung & Kontrolle</h3>
+            <h3>ÖBA & Qualitätskontrolle</h3>
             <p>
               Örtliche Bauaufsicht, Bauleitung, Baufortschrittskontrolle, Rechnungsprüfung,
-              Mängelerkennung und technische Dokumentation.
+              Mängelerkennung und Dokumentation.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="projekte">
+    <section id="projekte" class="dark-section">
       <div class="container">
         <div class="section-head">
-          <h2>Für welche Projekte?</h2>
-          <p>
+          <span class="section-kicker">Projekte</span>
+          <h2>Für welche Bauvorhaben?</h2>
+          <p class="lead">
             OBC ist auf Hochbauprojekte spezialisiert — von privaten Bauvorhaben bis zur
             technischen Begleitung gewerblicher und öffentlicher Projekte.
           </p>
         </div>
 
-        <ul class="project-list">
+        <ul class="list">
           <li>Einfamilienhäuser</li>
           <li>kleinere Mehrfamilienhäuser</li>
           <li>Umbauten und Sanierungen</li>
@@ -644,20 +979,15 @@
           <li>Bauherrenvertretung bei größeren Projekten</li>
           <li>Baufortschritts- und Qualitätskontrollen</li>
         </ul>
-
-        <div class="quote-box">
-          <p>
-            Was ist sinnvoll? Was ist notwendig? Und wo entstehen unnötige Kosten?
-          </p>
-        </div>
       </div>
     </section>
 
     <section id="warum">
       <div class="container">
         <div class="section-head">
-          <h2>Warum OBC?</h2>
-          <p>
+          <span class="section-kicker">Warum OBC?</span>
+          <h2>Früh klären. Sauber strukturieren. Fachlich begleiten.</h2>
+          <p class="lead">
             Bauprojekte werden oft dann teuer, wenn Grundlagen unklar sind, Angebote nicht
             vergleichbar sind oder die Kontrolle auf der Baustelle zu spät beginnt.
           </p>
@@ -665,36 +995,40 @@
 
         <div class="grid cols-2">
           <article class="card">
-            <h3>Früh klären</h3>
+            <h3>Klare Grundlagen</h3>
             <p>
-              Je früher die Grundlagen sauber geprüft werden, desto geringer ist das Risiko
-              für Nachträge, Verzögerungen und Fehlentscheidungen.
+              Je früher ein Projekt sauber geprüft wird, desto geringer ist das Risiko für
+              Nachträge, Verzögerungen und Fehlentscheidungen.
             </p>
           </article>
 
           <article class="card">
-            <h3>Sauber strukturieren</h3>
+            <h3>Vergleichbare Angebote</h3>
             <p>
-              Klare Zuständigkeiten, nachvollziehbare Abläufe und belastbare Unterlagen
-              schaffen Sicherheit für die weitere Umsetzung.
+              Gute Ausschreibungsunterlagen schaffen Transparenz und helfen, Angebote technisch
+              und wirtschaftlich richtig einzuordnen.
             </p>
           </article>
 
           <article class="card">
-            <h3>Fachlich begleiten</h3>
+            <h3>Kontrolle auf der Baustelle</h3>
             <p>
-              Technische Entscheidungen werden praxisnah bewertet — mit Blick auf Ausführung,
-              Kosten, Qualität und langfristige Nutzbarkeit.
+              Entscheidend ist nicht nur, was geplant wurde, sondern was tatsächlich ausgeführt,
+              dokumentiert und abgerechnet wird.
             </p>
           </article>
 
           <article class="card">
-            <h3>Ehrlich einschätzen</h3>
+            <h3>Ehrliche Einschätzung</h3>
             <p>
-              Sie erhalten keine Standardlösung, sondern eine realistische technische
-              Einschätzung auf Basis von Baupraxis und Planungserfahrung.
+              Sie erhalten keine Standardlösung, sondern eine realistische technische Einschätzung
+              auf Basis von Baupraxis und Planungserfahrung.
             </p>
           </article>
+        </div>
+
+        <div class="quote-box">
+          <p>Was ist sinnvoll? Was ist notwendig? Und wo entstehen unnötige Kosten?</p>
         </div>
       </div>
     </section>
@@ -702,15 +1036,14 @@
     <section id="ueber">
       <div class="container about">
         <div class="about-logo">
-          <img src="obc_Logo_NEU.png" alt="OBC Logo" />
+          <img src="obc_Logo_NEU.png" alt="OBC – Ortner BauConsult Logo" />
         </div>
 
         <div class="about-text">
-          <div class="section-head">
-            <h2>Fachlicher Hintergrund</h2>
-          </div>
+          <span class="section-kicker">Über OBC</span>
+          <h2>Fachlicher Hintergrund</h2>
 
-          <p>
+          <p class="lead">
             Ich bin Bauingenieur mit TU-Abschluss und abgeschlossener Baumeisterprüfung.
           </p>
 
@@ -729,6 +1062,28 @@
             Fachlich beschäftige ich mich außerdem mit historischen Dachtragwerken,
             Holzkonstruktionen und der Instandsetzung bestehender Bausubstanz.
           </p>
+
+          <div class="credentials">
+            <div class="credential">
+              <strong>Baumeister</strong>
+              <span>abgeschlossene Baumeisterprüfung</span>
+            </div>
+
+            <div class="credential">
+              <strong>Bauingenieur</strong>
+              <span>TU-Ausbildung im Bauwesen</span>
+            </div>
+
+            <div class="credential">
+              <strong>Hochbaupraxis</strong>
+              <span>Planung, Bauleitung, ÖBA und Projektsteuerung</span>
+            </div>
+
+            <div class="credential">
+              <strong>Bauherrenblick</strong>
+              <span>Kosten, Termine, Qualität und Entscheidungen</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -736,8 +1091,9 @@
     <section id="ablauf">
       <div class="container">
         <div class="section-head">
-          <h2>Ablauf</h2>
-          <p>
+          <span class="section-kicker">Ablauf</span>
+          <h2>Einfacher Einstieg, klare Begleitung</h2>
+          <p class="lead">
             Die Zusammenarbeit richtet sich nach Projektstand und Bedarf — von der ersten
             Einschätzung bis zur laufenden Begleitung.
           </p>
@@ -746,34 +1102,43 @@
         <div class="steps">
           <article class="step">
             <h3>Erstes Gespräch</h3>
-            <p>Wir klären, worum es geht, wo das Projekt steht und welche Unterstützung sinnvoll ist.</p>
+            <p>
+              Wir klären, worum es geht, wo das Projekt steht und welche Unterstützung sinnvoll ist.
+            </p>
           </article>
 
           <article class="step">
             <h3>Einschätzung</h3>
-            <p>Sie erhalten eine klare technische und organisatorische Einschätzung ohne unnötige Umwege.</p>
+            <p>
+              Sie erhalten eine klare technische und organisatorische Einschätzung ohne unnötige Umwege.
+            </p>
           </article>
 
           <article class="step">
             <h3>Begleitung</h3>
-            <p>Je nach Bedarf unterstütze ich einzelne Projektphasen oder das gesamte Vorhaben.</p>
+            <p>
+              Je nach Bedarf unterstütze ich einzelne Projektphasen oder das gesamte Vorhaben.
+            </p>
           </article>
 
           <article class="step">
             <h3>Kontrolle</h3>
-            <p>Kosten, Termine, Qualität und Ausführung werden geprüft und nachvollziehbar dokumentiert.</p>
+            <p>
+              Kosten, Termine, Qualität und Ausführung werden geprüft und nachvollziehbar dokumentiert.
+            </p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="uebersicht">
+    <section id="uebersicht" class="dark-section">
       <div class="container">
         <div class="section-head">
-          <h2>Leistungen im Überblick</h2>
+          <span class="section-kicker">Überblick</span>
+          <h2>Leistungen kompakt</h2>
         </div>
 
-        <ul class="service-list">
+        <ul class="list">
           <li>Bauherrenberatung</li>
           <li>Projektentwicklung</li>
           <li>Einreichplanung</li>
@@ -797,9 +1162,11 @@
     <section id="kontakt" class="contact">
       <div class="container">
         <div class="section-head">
-          <h2>Kontakt</h2>
-          <p>
-            Sie möchten ein Bauprojekt besprechen oder eine fachliche Einschätzung einholen?
+          <span class="section-kicker">Kontakt</span>
+          <h2>Projekt besprechen oder fachliche Einschätzung einholen.</h2>
+          <p class="lead">
+            Schreiben Sie mir kurz, worum es geht. Ich melde mich mit einer ersten Einschätzung
+            zur sinnvollen weiteren Vorgehensweise.
           </p>
         </div>
 
@@ -814,13 +1181,18 @@
           </div>
 
           <div class="contact-card">
-            <h3>Anfrage stellen</h3>
+            <h3>Direkt kontaktieren</h3>
             <p>
               Telefon: <a href="tel:+4368120289417">+43 681 20289417</a><br />
               E-Mail: <a href="mailto:ortner@obc-bauconsult.at">ortner@obc-bauconsult.at</a><br />
               Web: <a href="https://www.obc.co.at">www.obc.co.at</a>
             </p>
           </div>
+        </div>
+
+        <div class="contact-actions">
+          <a class="btn" href="mailto:ortner@obc-bauconsult.at">E-Mail schreiben</a>
+          <a class="btn secondary" href="tel:+4368120289417">Anrufen</a>
         </div>
 
         <div class="quote-box">
