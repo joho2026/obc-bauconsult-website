@@ -130,11 +130,11 @@
     }
 
     .nav{
-      min-height:86px;
+      min-height:98px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:28px;
+      gap:34px;
     }
 
     .brand{
@@ -145,9 +145,9 @@
     }
 
     .brand img{
-      width:280px;
+      width:340px;
       height:auto;
-      max-height:64px;
+      max-height:78px;
       object-fit:contain;
       object-position:left center;
     }
@@ -155,9 +155,9 @@
     .nav-links{
       display:flex;
       align-items:center;
-      gap:22px;
-      font-size:.93rem;
-      font-weight:700;
+      gap:26px;
+      font-size:1rem;
+      font-weight:800;
       color:var(--navy);
     }
 
@@ -172,10 +172,13 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:.78rem 1rem;
+      min-height:50px;
+      padding:.9rem 1.25rem;
       border-radius:999px;
       background:var(--bordeaux);
       color:#fff !important;
+      font-size:.96rem;
+      box-shadow:0 10px 24px rgba(102,52,58,.18);
     }
 
     .menu-btn{
@@ -906,7 +909,7 @@
         position:absolute;
         left:20px;
         right:20px;
-        top:78px;
+        top:90px;
         display:none;
         flex-direction:column;
         align-items:stretch;
@@ -932,7 +935,7 @@
     @media (max-width:760px){
       .wrap{width:min(var(--max), calc(100% - 28px))}
       .section{padding:76px 0}
-      .brand img{width:235px;height:auto;max-height:58px}
+      .brand img{width:270px;height:auto;max-height:66px}
       .hero{min-height:690px}
       .hero-inner{padding:90px 0 95px}
       h1{font-size:clamp(2.45rem,12vw,4rem)}
@@ -970,8 +973,8 @@
     }
 
     @media (max-width:480px){
-      .brand img{width:205px;height:auto;max-height:52px}
-      .nav{min-height:76px}
+      .brand img{width:225px;height:auto;max-height:56px}
+      .nav{min-height:84px}
       .hero-actions{display:grid}
       .btn{width:100%}
       .contact-form{padding:22px}
