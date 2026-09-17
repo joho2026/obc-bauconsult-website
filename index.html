@@ -145,10 +145,11 @@
     }
 
     .brand img{
-      width:290px;
-      height:78px;
-      object-fit:cover;
-      object-position:center;
+      width:280px;
+      height:auto;
+      max-height:64px;
+      object-fit:contain;
+      object-position:left center;
     }
 
     .nav-links{
@@ -456,6 +457,20 @@
       font-size:.95rem;
     }
 
+    .decision-quote{
+      margin-top:34px;
+      padding:28px 30px;
+      border-radius:16px;
+      background:var(--navy);
+      color:#fff;
+      font-size:clamp(1.28rem,2.2vw,1.75rem);
+      font-weight:800;
+      line-height:1.35;
+      letter-spacing:-.018em;
+      box-shadow:0 14px 34px rgba(15,39,71,.12);
+      border-left:5px solid var(--bordeaux);
+    }
+
     /* PROFILE */
     .profile-grid{
       display:grid;
@@ -549,7 +564,7 @@
       border:1px solid var(--line);
     }
     .portrait-wrap.portrait-missing::before{
-      content:"Portrait: jerome-ortner-portrait.jpg";
+      content:"Portrait: jerome-ortner-portrait.jpeg";
       color:var(--muted);
       font-size:.92rem;
       font-weight:700;
@@ -917,7 +932,7 @@
     @media (max-width:760px){
       .wrap{width:min(var(--max), calc(100% - 28px))}
       .section{padding:76px 0}
-      .brand img{width:230px;height:70px}
+      .brand img{width:235px;height:auto;max-height:58px}
       .hero{min-height:690px}
       .hero-inner{padding:90px 0 95px}
       h1{font-size:clamp(2.45rem,12vw,4rem)}
@@ -955,7 +970,7 @@
     }
 
     @media (max-width:480px){
-      .brand img{width:195px;height:62px}
+      .brand img{width:205px;height:auto;max-height:52px}
       .nav{min-height:76px}
       .hero-actions{display:grid}
       .btn{width:100%}
@@ -1136,7 +1151,7 @@
     <div class="wrap pro-grid">
       <div>
         <div class="eyebrow">Professionelle Auftraggeber</div>
-        <h2>Technische Einschätzungen, die nachvollziehbar dokumentiert sind.</h2>
+        <h2>Unabhängige Prüfung für fundierte Entscheidungen.</h2>
         <p class="lead" style="color:rgba(255,255,255,.74);margin-top:22px;">
           OBC unterstützt neben privaten und gewerblichen Bauherren auch Banken, Finanzierer, Investoren,
           Versicherungen und Projektträger mit unabhängigen Prüf- und Dokumentationsleistungen.
@@ -1214,6 +1229,10 @@
           <p>Vorhandene Konstruktionen verstehen, bevor Sanierung, Umbau oder technische Eingriffe festgelegt werden.</p>
         </article>
       </div>
+
+      <div class="decision-quote">
+        Was ist technisch richtig, wirtschaftlich sinnvoll und für den Bauherrn wirklich notwendig?
+      </div>
     </div>
   </section>
 
@@ -1222,7 +1241,7 @@
       <div class="portrait-wrap">
         <img
           class="portrait"
-          src="jerome-ortner-portrait.jpg"
+          src="jerome-ortner-portrait.jpeg"
           alt="Bmstr. Dipl.-Ing. Jérôme Ortner, BSc. – OBC Ortner BauConsult"
           loading="lazy"
           onerror="this.style.visibility='hidden'; this.parentElement.classList.add('portrait-missing');"
@@ -1247,6 +1266,11 @@
           Die berufliche Praxis reicht von privaten und öffentlichen Hochbauprojekten über GU-Bauleitung und
           Projektentwicklung bis zu technisch anspruchsvollen Industrie- und Pharmaprojekten. Dadurch werden
           Fragestellungen nicht nur aus Sicht der Planung, sondern auch aus Sicht der Ausführung und des Bauherrn betrachtet.
+        </p>
+
+        <p>
+          Im Mittelpunkt stehen belastbare Entscheidungsgrundlagen, transparente Kosten, dokumentierte Qualität
+          und klare Verantwortlichkeiten im Interesse des Auftraggebers.
         </p>
 
         <div class="facts">
@@ -1561,28 +1585,3 @@ ${message}`;
 
 </body>
 </html>
-index.html
-HTML
-Eingefügter Text.txt
-Dokument
-zum Vergleich... das ist aktueller Stand... hab jetzt deine letzte ausarbeitung hochgeladen...
-
-Ja — jetzt kann man sehr gut vergleichen. Der hochgeladene bisherige Stand ist die ältere Version mit der deutlich längeren Leistungsstruktur, dem Hero „BauConsult mit Baupraxis“, den getrennten Blöcken Projektsteuerung/Bauherrenvertretung/Projektabwicklung und der sehr langen Kompaktliste.
-
-Die neue Version ist aus meiner Sicht klar besser, und zwar vor allem aus drei Gründen: Sie ist ruhiger, professioneller positioniert und weniger redundant. Gerade im alten Stand wiederholen sich mehrfach dieselben Kernaussagen: koordinieren, prüfen, Kosten hinterfragen, Qualität sichern, Risiken erkennen. Das ist fachlich alles richtig, aber auf einer Website wirkt es nach mehreren Abschnitten etwas kreisend. In der neuen Fassung sind diese Aussagen stärker gebündelt.
-
-Besonders gelungen finde ich in der neuen Version jetzt:
-
-die 8 Leistungsbereiche statt der bisherigen 9 teils überlappenden Blöcke,
-Projektsteuerung & Bauherrenvertretung als gemeinsamer Bereich,
-Technische Risikobewertung & Baufortschrittsprüfung als eigenes Leistungsfeld,
-Gutachten & technische Stellungnahmen sichtbar als eigener Bereich,
-die professionelle Zielgruppe Banken/Investoren/Finanzierer,
-dein Profil mit Foto statt nochmals nur Logo,
-und die stark verkürzte Leistungsübersicht.
-
-Der alte Stand hat aber zwei Dinge, die ich inhaltlich nicht verlieren würde: Erstens den Satzgedanken „Was ist technisch richtig, wirtschaftlich sinnvoll und für den Bauherrn wirklich notwendig?“ – der passt sehr gut zu dir. Zweitens ist im alten Profil die Formulierung mit „belastbaren Entscheidungsgrundlagen, nachvollziehbaren Kosten, dokumentierter Qualität und klaren Verantwortlichkeiten“ fachlich stark.
-
-Was ich nicht wieder zurückholen würde, sind „Projektabwicklung“ als eigener Leistungsblock, die 28-Punkte-Kompaktliste und die mehrfach wiederkehrenden Formulierungen rund um „im Hintergrund“, „strukturierend, koordinierend und prüfend“. Genau das war im alten Stand zu viel.
-
-Ein Punkt ist mir beim direkten Vergleich noch aufgefallen: Der alte Hero war inhaltlich dichter und erklärender, die ne
