@@ -220,6 +220,12 @@
     .profile-claim{padding:20px 22px;border-left:4px solid var(--bordeaux);background:var(--soft);color:#42505d;font-weight:600}
     .profile-origin{padding:20px 22px;border:1px solid #d8e0e6;border-radius:14px;background:#fff;color:#52606c;font-size:.93rem}
     .profile-origin strong{display:block;color:var(--navy);margin-bottom:5px}
+    .qualification-marks{display:flex;align-items:center;gap:22px;flex-wrap:wrap;padding:18px 20px;border:1px solid var(--line);border-radius:16px;background:#fff}
+    .qualification-mark{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+    .qualification-mark img{display:block;width:auto;max-width:138px;max-height:138px;object-fit:contain}
+    .qualification-mark--association img{max-width:118px;max-height:118px}
+    .qualification-caption{flex:1 1 220px;color:var(--muted);font-size:.86rem;line-height:1.45}
+    .qualification-caption strong{display:block;color:var(--navy);font-size:.92rem;margin-bottom:3px}
     .portrait-wrap.portrait-missing{min-height:520px;border-radius:22px;background:linear-gradient(145deg,#e8edf1,#f7f8fa);display:flex;align-items:center;justify-content:center;border:1px solid var(--line)}
     .portrait-wrap.portrait-missing::before{content:"Portrait: jerome-ortner-portrait.jpeg";color:var(--muted);font-size:.92rem;font-weight:700;text-align:center;padding:24px}
 
@@ -532,7 +538,15 @@
           <div class="fact"><strong>Projektpraxis</strong><span>Privat · öffentlich · Gewerbe · Industrie · Pharma</span></div>
           <div class="fact"><strong>Perspektiven</strong><span>Planung · Ausführung · ÖBA · Bauherr · Finanzierung</span></div>
         </div>
-        <!-- BAUMEISTERSTEMPEL: nach Upload des Originalbildes hier im Profilbereich einbinden -->
+        <div class="qualification-marks" aria-label="Baumeister-Qualifikationszeichen">
+          <a class="qualification-mark" href="https://www.wko.at/weiterbildung/guetesiegel-meisterbetrieb" target="_blank" rel="noopener noreferrer" aria-label="Offizielles Gütesiegel Baumeister – staatlich geprüft bei der WKO öffnen">
+            <img src="https://www.wko.at/oe/weiterbildung/baumeister.png" alt="Gütesiegel Baumeister – staatlich geprüft" loading="lazy" referrerpolicy="no-referrer">
+          </a>
+          <a class="qualification-mark qualification-mark--association" id="baumeisterAssociationMark" href="https://www.wko.at/gewerbe-handwerk/bau/gewerbeberechtigung-baumeister" target="_blank" rel="noopener noreferrer" aria-label="Offizielle Verbandsmarke Baumeister bei der WKO öffnen" hidden>
+            <img data-src="https://www.wko.at/oe/gewerbe-handwerk/bau/baumeister-logo.png" alt="Verbandsmarke der österreichischen Baumeister" loading="lazy" referrerpolicy="no-referrer">
+          </a>
+          <div class="qualification-caption"><strong>Baumeister · staatlich geprüft</strong>Offizielle Qualifikationszeichen. Die Verbandsmarke wird mit aufrechter Baumeister-Gewerbeberechtigung geführt.</div>
+        </div>
         <div class="profile-claim">Mein Anspruch: Zusammenhänge früh erkennen, Probleme offen ansprechen und Entscheidungen fachlich fundiert vorbereiten.</div>
       </div>
     </div>
@@ -644,6 +658,16 @@
   const toTop=document.getElementById('toTop');
   window.addEventListener('scroll',()=>toTop.classList.toggle('show',window.scrollY>650),{passive:true});
   toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+  // Die Verbandsmarke darf laut WKO nur bei aufrechter Baumeister-Gewerbeberechtigung geführt werden.
+  // Die Reaktivierung ist mit 15.10.2026 vorgesehen; ab diesem Datum wird die bereits integrierte Marke automatisch sichtbar.
+  const associationMark=document.getElementById('baumeisterAssociationMark');
+  const associationMarkStart=new Date('2026-10-15T00:00:00+02:00');
+  if(associationMark && new Date()>=associationMarkStart){
+    const markImg=associationMark.querySelector('img[data-src]');
+    if(markImg){markImg.src=markImg.dataset.src;markImg.removeAttribute('data-src');}
+    associationMark.hidden=false;
+  }
 
 </script>
 </body>
